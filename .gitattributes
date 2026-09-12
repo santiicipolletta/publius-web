@@ -1,0 +1,19 @@
+# Todo el texto se guarda con LF en el repositorio.
+* text=auto eol=lf
+
+# Estos los lee el servidor de hosting: tienen que ser LF siempre,
+# en cualquier sistema operativo.
+/public/_redirects text eol=lf
+/public/_headers   text eol=lf
+/public/robots.txt text eol=lf
+
+# Binarios: que git no los toque.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.ico  binary
+*.mp3  binary
+*.mp4  binary
+*.docx binary
+*.xlsx binary
+*.zip  binary

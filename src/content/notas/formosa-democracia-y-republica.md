@@ -1,0 +1,24 @@
+---
+titulo: "Formosa, Democracia y República"
+extracto: "En este último año nos ha tocado vivir un hecho insólito el cual la mayoría de nosotros no esperábamos vivir, una pandemia."
+autor: thiago-noguerol
+fecha: 2021-03-06
+categorias: ["Investigación"]
+fuenteOriginal: "https://web.archive.org/web/20220525193243/https://publius.com.ar/formosa-democracia-y-republica/"
+---
+
+> “…Ahora habrán sido más flexibles que otros pero lo que no se puede negar es lo obvio, no existe pandemia que de derecho a un gobernante a restringir libertades, las que son inherentes a cada persona que habite en el territorio resguardado por una constitución.”
+
+En este último año nos ha tocado vivir un hecho insólito el cual la mayoría de nosotros no esperábamos vivir, una pandemia. Esta propagación del virus mundial llevó a cada país, provincia, departamento o localidad a tomar medidas que resulten lo más favorable posible para el bien común. Algunos habrán sido más flexibles que otros pero lo que no se puede negar es lo obvio, no existe pandemia que de derecho a cualquier gobernante a restringir libertades, las que son inherentes a cada persona que habite en un territorio resguardado por una Constitución.
+
+Hoy en Argentina, más precisamente en la provincia de Formosa se da una situación que perjudica al sistema democrático y puntualmente al sistema republicano. Explicando un poco el tema en cuestión el mandatario formoseño Gildo Insfrán decidió establecer centros de aislamiento para toda aquella persona que represente un caso “sospechoso” de COVID-19, dichas personas en su mayoría, han denunciado mediante los medios de comunicación un denigrante trato por parte de los centros de aislamiento y han exigido su propia libertad por el hecho de no contraer ningún síntoma de la enfermedad. Ante esto, un senador de la oposición presentó un Habeas Corpus que provocó la intervención de la justicia federal para investigar los casos de violación de DDHH y la Corte Suprema de Justicia de la Nación solicitó informes acerca de los centros gubernamentales de detención y la aplicación de protocolos para la protección de DDHH de las personas.
+
+A su vez en el día de ayer el gobernador Insfrán decidió volver a la fase 1 en toda la provincia, cuando ninguna de las otras jurisdicciones nacionales lo ha decidido, por lo que en el día de ayer el pueblo formoseño se levantó en contra de esta decisión, hubieron cruces entre la policía y los ciudadanos, adolescentes detenidos además de los hombres y mujeres baleados por el cuerpo policial.
+
+Nuestra carta magna en su artículo primero nos dice “La Nación Argentina adopta para su gobierno la forma representativa, republicana y federal, según lo establece la presente Constitución”, cuándo la ley fundamental habla de “forma republicana” hay que tener en cuenta los tres principios que rigen esta institución: Soberanía del Pueblo, División de Poderes y Responsabilidad de los funcionarios. En el primer principio nos enfocaremos (Soberanía del pueblo), nunca esta demás recordar el artículo 22 de nuestra Constitución “El pueblo no gobierna sino a través de sus representantes”, este punto nos muestra como el pueblo es quien ostenta el poder en la jurisdicción que le compete, pero, ¿en qué momento tiene ese poder? Siempre, el ejercicio de la democracia no se reduce a un simple día de comicios en donde cada ciudadano deposita su voto en una urna, sino que una vez elegido el representante (gobernante) este tiene la obligación de cumplir con las necesidades que el pueblo le demande.
+
+Entendemos entonces que si el gobernador Insfrán no cumple con las demandas reiteradas y sucesivas del pueblo formoseño, no estaría respetando al sistema democrático y mucho menos a la representatividad que cada provincia debe respetar. Si no se respeta la soberanía del pueblo mediante el sistema democrático y representativo tampoco se está respetando el sistema republicano ya que uno de sus pilares se ve afectado por las actuaciones mencionadas infra.
+
+¿Hay solución para este tipo de situaciones? Sí, el artículo 6 de la ley fundamental nos habla acerca de la Intervención Federal y dice “El Gobierno Federal interviene el territorio de las provincias para garantizar la forma republicana o repeler invasiones exteriores…”, resulta evidente el incumplimiento del sistema republicano en la provincia del norte, por lo que no habría obstáculo alguno para aplicar el instituto de la Intervención Federal.
+
+Volviendo al artículo 1° de la Constitución, en Formosa, ¿Se respeta el sistema representativo, republicano y federal, sabiendo que la institución de la república está siendo violentada, la representatividad se ve afectada por decisiones tomadas en contra del interés colectivo y el sistema federal sufre de la misma afección por consecuencia lógica y sobre esto el Gobierno Nacional hace oídos sordos?

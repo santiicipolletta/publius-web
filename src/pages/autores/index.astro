@@ -1,0 +1,176 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+import { notasPublicadas } from '../../lib/notas';
+
+const fichas = await getCollection('autores');
+const notas = await notasPublicadas();
+
+/* Cuántas notas firmó cada persona, contando las que co-escribió */
+const conteo = new Map<string, number>();
+const sumar = (id: string) => conteo.set(id, (conteo.get(id) ?? 0) + 1);
+for (const nota of notas) {
+  sumar(nota.data.autor.id);
+  for (const co of nota.data.coautores) sumar(co.id);
+}
+
+const autores = fichas
+  .map((a) => ({ ...a, total: conteo.get(a.id) ?? 0 }))
+  .sort(
+    (a, b) =>
+      a.data.orden - b.data.orden ||
+      b.total - a.total ||
+      a.data.nombre.localeCompare(b.data.nombre, 'es'),
+  );
+
+/* Texto por el que se puede buscar cada autor: nombre + temas.
+   Sin acentos y en minúsculas, para que "jazmin" encuentre a Jazmín. */
+const normalizar = (t: string) =>
+  t
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase();
+---
+
+<Base
+  titulo="Autores"
+  descripcion="Las 30 firmas que publicaron en Publius Group, con los temas sobre los que escribe cada una.">
+  <section class="contenedor pt-10 pb-14">
+    <div class="barra-seccion">
+      <h1 class="rotulo">Quiénes escriben</h1>
+      <p class="meta-linea">{autores.length} firmas</p>
+    </div>
+
+    <p class="max-w-[56ch] pt-6 text-tinta-2">
+      Publius nació para que los que todavía no tenían dónde publicar tuvieran un lugar. Estas son
+      todas sus firmas, con los temas de los que se ocupa cada una.
+    </p>
+
+    {/* --- Buscador: escribí un nombre o un tema --------------------
+        Filtra en el navegador sobre los datos que ya están en la
+        página. No hace pedidos al servidor y funciona al instante. */}
+    <div class="mt-8 max-w-md">
+      <label for="buscar" class="rotulo mb-2 block text-tinta-3">Buscar una firma</label>
+      <div class="flex items-center gap-2 border border-borde bg-papel px-3 py-2.5 focus-within:border-navy">
+        <svg viewBox="0 0 20 20" class="size-4 shrink-0 text-tinta-3" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"
+          ></circle>
+          <path d="M12.8 12.8 17 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+          ></path>
+        </svg>
+        <input
+          type="search"
+          id="buscar"
+          placeholder="Nombre o tema — por ejemplo, derecho"
+          autocomplete="off"
+          class="w-full bg-transparent text-[0.9375rem] text-tinta outline-none placeholder:text-tinta-3"
+        />
+      </div>
+      <p id="resultado" class="meta-linea mt-2 h-4" role="status" aria-live="polite"></p>
+    </div>
+
+    <ul
+      id="grilla-autores"
+      class="mt-6 grid list-none grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      {
+        autores.map((autor) => (
+          <li data-busqueda={normalizar(`${autor.data.nombre} ${autor.data.temas.join(' ')}`)}>
+            <a
+              href={`/autores/${autor.id}`}
+              class="group flex h-full flex-col border border-borde bg-papel p-6 no-underline transition-colors duration-150 hover:border-navy">
+              <h2 class="mb-1 text-[1.05rem] leading-tight font-semibold text-tinta group-hover:underline group-hover:decoration-navy group-hover:underline-offset-[3px]">
+                {autor.data.nombre}
+              </h2>
+
+              {autor.data.rol && <p class="rotulo mb-2 text-tinta-3">{autor.data.rol}</p>}
+
+              <p class="mt-2 mb-4 text-[0.875rem] leading-[1.6] text-tinta-2">
+                {autor.data.presentacion}
+              </p>
+
+              <ul class="mb-4 flex list-none flex-wrap gap-1.5">
+                {autor.data.temas.map((t) => (
+                  <li class="border border-borde bg-fondo px-2 py-0.5 text-[0.6875rem] text-tinta-2">
+                    {t}
+                  </li>
+                ))}
+              </ul>
+
+              <p class="meta-linea mt-auto">
+                {autor.total} {autor.total === 1 ? 'nota' : 'notas'}
+              </p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <p id="sin-resultados" class="hidden pt-8 text-tinta-2">
+      Ninguna firma coincide con esa búsqueda.
+    </p>
+  </section>
+</Base>
+
+<script>
+  const entrada = document.querySelector<HTMLInputElement>('#buscar');
+  const grilla = document.querySelector<HTMLUListElement>('#grilla-autores');
+  const vacio = document.querySelector<HTMLParagraphElement>('#sin-resultados');
+  const resultado = document.querySelector<HTMLParagraphElement>('#resultado');
+
+  if (entrada && grilla && vacio && resultado) {
+    const items = [...grilla.querySelectorAll<HTMLLIElement>('li[data-busqueda]')];
+    const total = items.length;
+
+    const sinAcentos = (t: string) =>
+      t
+        .normalize('NFD')
+        .replace(/[̀-ͯ]/g, '')
+        .toLowerCase()
+        .trim();
+
+    const filtrar = () => {
+      const consulta = sinAcentos(entrada.value);
+
+      if (!consulta) {
+        for (const li of items) li.hidden = false;
+        vacio.hidden = true;
+        resultado.textContent = '';
+        return;
+      }
+
+      /* Todas las palabras tienen que aparecer: "derecho constitucional"
+         encuentra a quien tenga los dos términos, en cualquier orden. */
+      const palabras = consulta.split(/\s+/);
+      let visibles = 0;
+
+      for (const li of items) {
+        const texto = li.dataset.busqueda ?? '';
+        const coincide = palabras.every((p) => texto.includes(p));
+        li.hidden = !coincide;
+        if (coincide) visibles++;
+      }
+
+      vacio.hidden = visibles > 0;
+      /* "1 de 30 firmas": el sustantivo concuerda con el total, no
+         con la cantidad encontrada. */
+      resultado.textContent = visibles === total ? '' : `${visibles} de ${total} firmas`;
+    };
+
+    entrada.addEventListener('input', filtrar);
+
+    /* Escape limpia la búsqueda */
+    entrada.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        entrada.value = '';
+        filtrar();
+      }
+    });
+
+    /* Si se llega con ?q=... en la URL, se aplica al cargar */
+    const inicial = new URLSearchParams(location.search).get('q');
+    if (inicial) {
+      entrada.value = inicial;
+      filtrar();
+    }
+  }
+</script>

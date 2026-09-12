@@ -1,0 +1,106 @@
+---
+const anio = new Date().getFullYear();
+
+const secciones = [
+  { texto: 'Notas', href: '/notas' },
+  { texto: 'Autores', href: '/autores' },
+  { texto: 'Podcast', href: '/podcast' },
+  { texto: 'RSS', href: '/rss.xml' },
+];
+
+const redes = [
+  { texto: 'Instagram', href: 'https://www.instagram.com/publius_group/' },
+  {
+    texto: 'Apple Podcasts',
+    href: 'https://podcasts.apple.com/us/podcast/publius-group/id1553800644',
+  },
+];
+---
+
+<footer class="sobre-navy mt-16 bg-navy text-marca">
+  <div class="contenedor">
+    <div class="grid gap-10 pt-14 pb-10 sm:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr]">
+      <div class="sm:col-span-2 lg:col-span-1">
+        <p class="text-2xl leading-none tracking-[-0.03em]">
+          <span class="font-bold text-white">Publius</span><span class="font-light text-marca"
+            >Group</span>
+        </p>
+      </div>
+
+      <nav aria-labelledby="pie-secciones">
+        <h2
+          id="pie-secciones"
+          class="mb-3.5 text-[0.625rem] font-extrabold tracking-[0.14em] text-white/60 uppercase">
+          Secciones
+        </h2>
+        <ul class="list-none space-y-2.5 text-[0.9375rem]">
+          {
+            secciones.map((s) => (
+              <li>
+                <a
+                  href={s.href}
+                  class="text-marca no-underline transition-colors hover:text-white hover:underline hover:underline-offset-[3px]">
+                  {s.texto}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav aria-labelledby="pie-redes">
+        <h2
+          id="pie-redes"
+          class="mb-3.5 text-[0.625rem] font-extrabold tracking-[0.14em] text-white/60 uppercase">
+          Escuchanos y venos
+        </h2>
+        <ul class="list-none space-y-2.5 text-[0.9375rem]">
+          {/* Los enlaces multimedia llevan su punto de color */}
+          <li>
+            <a
+              href="https://www.youtube.com/@publiusgroup"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="flex items-center gap-2.5 text-marca no-underline transition-colors hover:text-white">
+              <span
+                class="size-2 shrink-0 rounded-full bg-yt ring-1 ring-white/25"
+                aria-hidden="true"></span>
+              YouTube
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+              rel="noopener noreferrer"
+              target="_blank"
+              class="flex items-center gap-2.5 text-marca no-underline transition-colors hover:text-white">
+              <span
+                class="size-2 shrink-0 rounded-full bg-sp ring-1 ring-white/25"
+                aria-hidden="true"></span>
+              Spotify
+            </a>
+          </li>
+          {
+            redes.map((r) => (
+              <li>
+                <a
+                  href={r.href}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="text-marca no-underline transition-colors hover:text-white hover:underline hover:underline-offset-[3px]">
+                  {r.texto}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </div>
+
+    <div class="border-t border-navy-line py-5">
+      <p class="text-[0.8125rem] text-marca/75">
+        &copy; {anio} Publius Group. Los textos pertenecen a sus autores.
+      </p>
+    </div>
+  </div>
+</footer>

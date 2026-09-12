@@ -1,0 +1,116 @@
+# Generado por scripts/generar-redirecciones.mjs — no editar a mano.
+#
+# El sitio anterior era WordPress y tenía las notas en la raíz.
+# Estas reglas hacen que los links viejos sigan funcionando.
+
+# --- Taxonomías del WordPress viejo ---
+/author/*      /autores/:splat      301
+/category/*    /categoria/:splat    301
+/tag/*         /notas               301
+/page/*        /notas               301
+
+# --- Páginas fijas que cambiaron de nombre ---
+/home          /                    301
+/opinion       /categoria/opinion   301
+/actualidad    /categoria/actualidad 301
+/investigacion /categoria/investigacion 301
+/shorts        /categoria/shorts    301
+/spotify       /podcast             301
+/media         /podcast             301
+/autores/invitado /autores          301
+
+# --- Las 94 notas: de la raíz a /notas/ ---
+/30-anos-del-mercosur-congelamiento-o-mision-reivindicar /notas/30-anos-del-mercosur-congelamiento-o-mision-reivindicar 301
+/al-rojo-vivo                                  /notas/al-rojo-vivo                                  301
+/alimentacion                                  /notas/alimentacion                                  301
+/analisis-de-la-evolucion-del-estado-moderno-y-caracterizacion-de-sus-distintas-etapas /notas/analisis-de-la-evolucion-del-estado-moderno-y-caracterizacion-de-sus-distintas-etapas 301
+/ano-electoral                                 /notas/ano-electoral                                 301
+/aquella-noche-del-19-de-diciembre-del-2001    /notas/aquella-noche-del-19-de-diciembre-del-2001    301
+/barajar-y-dar-de-nuevo                        /notas/barajar-y-dar-de-nuevo                        301
+/bastan-las-buenas-intenciones                 /notas/bastan-las-buenas-intenciones                 301
+/carta-a-los-futuros-abogados                  /notas/carta-a-los-futuros-abogados                  301
+/causa-vialidad-una-mas                        /notas/causa-vialidad-una-mas                        301
+/chocobar-sera-justicia                        /notas/chocobar-sera-justicia                        301
+/como-funciona-la-salud-en-el-mundo            /notas/como-funciona-la-salud-en-el-mundo            301
+/como-sostener-la-militancia                   /notas/como-sostener-la-militancia                   301
+/cuestionamientos-para-con-la-normalidad       /notas/cuestionamientos-para-con-la-normalidad       301
+/data-privacy-lo-que-el-gobierno-sabe-de-vos   /notas/data-privacy-lo-que-el-gobierno-sabe-de-vos   301
+/de-emergentes-a-standalone                    /notas/de-emergentes-a-standalone                    301
+/debate-universitario-en-cordoba               /notas/debate-universitario-en-cordoba               301
+/el-analgesico-la-independencia                /notas/el-analgesico-la-independencia                301
+/el-democratico-mensaje-de-no-votar            /notas/el-democratico-mensaje-de-no-votar            301
+/el-derecho-al-debido-proceso-en-la-convencion-americana-de-derechos-humanos /notas/el-derecho-al-debido-proceso-en-la-convencion-americana-de-derechos-humanos 301
+/el-fin-de-chiamerica                          /notas/el-fin-de-chiamerica                          301
+/el-futuro-que-nos-espera                      /notas/el-futuro-que-nos-espera                      301
+/el-humor-tiene-limites                        /notas/el-humor-tiene-limites                        301
+/el-primer-efecto-post-pandemia-la-crisis-de-la-television /notas/el-primer-efecto-post-pandemia-la-crisis-de-la-television 301
+/el-proceso-de-latinoamericanizacion-de-la-republica-argentina /notas/el-proceso-de-latinoamericanizacion-de-la-republica-argentina 301
+/el-rey-de-la-tele-se-pone-de-rodillas         /notas/el-rey-de-la-tele-se-pone-de-rodillas         301
+/el-sahel-la-region-en-estado-critico          /notas/el-sahel-la-region-en-estado-critico          301
+/en-casa-de-herrero                            /notas/en-casa-de-herrero                            301
+/encerradores-y-libertinos                     /notas/encerradores-y-libertinos                     301
+/entre-la-libertad-y-la-pandemia               /notas/entre-la-libertad-y-la-pandemia               301
+/es-hora-de-cambiar-el-sistema-impositivo      /notas/es-hora-de-cambiar-el-sistema-impositivo      301
+/estatizar-gasto-o-inversion                   /notas/estatizar-gasto-o-inversion                   301
+/fin-del-bear-market-argentino-un-nuevo-inicio /notas/fin-del-bear-market-argentino-un-nuevo-inicio 301
+/formosa-democracia-y-republica                /notas/formosa-democracia-y-republica                301
+/geopolitica-de-las-vacunas-que-pasa-con-latinoamerica /notas/geopolitica-de-las-vacunas-que-pasa-con-latinoamerica 301
+/hasta-donde-llega-la-constitucion             /notas/hasta-donde-llega-la-constitucion             301
+/historia-de-un-25-de-mayo-de-1810             /notas/historia-de-un-25-de-mayo-de-1810             301
+/incoherentes-el-problema-de-la-ley-de-etiquetas /notas/incoherentes-el-problema-de-la-ley-de-etiquetas 301
+/ingenieria-genetica-mito-o-realidad           /notas/ingenieria-genetica-mito-o-realidad           301
+/ingreso-basico-universal-descentralizado      /notas/ingreso-basico-universal-descentralizado      301
+/juicio-politico-a-la-corte                    /notas/juicio-politico-a-la-corte                    301
+/la-apropiacion-de-lo-publico                  /notas/la-apropiacion-de-lo-publico                  301
+/la-cara-de-los-afectados                      /notas/la-cara-de-los-afectados                      301
+/la-destruccion-de-la-salud-mental             /notas/la-destruccion-de-la-salud-mental             301
+/la-escuela-y-la-profesion                     /notas/la-escuela-y-la-profesion                     301
+/la-etica-protestante-y-el-miedo               /notas/la-etica-protestante-y-el-miedo               301
+/la-importancia-de-la-libertad-cultural        /notas/la-importancia-de-la-libertad-cultural        301
+/la-independencia-que-nunca-tuvimos            /notas/la-independencia-que-nunca-tuvimos            301
+/la-inteligencia-artificial-y-el-futuro-de-las-empresas-oportunidades-y-desafios /notas/la-inteligencia-artificial-y-el-futuro-de-las-empresas-oportunidades-y-desafios 301
+/la-juventud-y-la-politica                     /notas/la-juventud-y-la-politica                     301
+/la-necesidad-del-derecho-a-la-portacion-de-armas-de-fuego /notas/la-necesidad-del-derecho-a-la-portacion-de-armas-de-fuego 301
+/la-novela-de-las-vacunas                      /notas/la-novela-de-las-vacunas                      301
+/la-paradoja-de-la-democracia-argentina        /notas/la-paradoja-de-la-democracia-argentina        301
+/la-pera-y-el-fiambre                          /notas/la-pera-y-el-fiambre                          301
+/la-regulacion-del-derecho-a-peticionar-a-las-autoridades-mandato-constitucional-para-asegurar-el-ejercicio-de-los-demas-derechos-fundamentales /notas/la-regulacion-del-derecho-a-peticionar-a-las-autoridades-mandato-constitucional-para-asegurar-el-ejercicio-de-los-demas-derechos-fundamentales 301
+/la-universidad-como-vivencia-cultural         /notas/la-universidad-como-vivencia-cultural         301
+/la-verdad-historica                           /notas/la-verdad-historica                           301
+/la-vicepresidencia-un-cargo-innecesario       /notas/la-vicepresidencia-un-cargo-innecesario       301
+/las-dos-caras-de-las-migraciones-latinoamericanos-asiaticos-y-africanos-hacia-europa /notas/las-dos-caras-de-las-migraciones-latinoamericanos-asiaticos-y-africanos-hacia-europa 301
+/las-dos-coreas-cuales-son-los-eventos-fundamentales-de-su-pasado-por-que-hay-dos-coreas-por-que-se-separaron-habra-paz-en-la-region /notas/las-dos-coreas-cuales-son-los-eventos-fundamentales-de-su-pasado-por-que-hay-dos-coreas-por-que-se-separaron-habra-paz-en-la-region 301
+/las-otras-mujeres                             /notas/las-otras-mujeres                             301
+/legitima-defensa                              /notas/legitima-defensa                              301
+/lo-politicamente-correcto                     /notas/lo-politicamente-correcto                     301
+/los-balances-necesarios-en-un-mundo-conectado /notas/los-balances-necesarios-en-un-mundo-conectado 301
+/los-no-personas-y-lucha-por-los-derechos-civiles /notas/los-no-personas-y-lucha-por-los-derechos-civiles 301
+/mejor-tarde-que-nunca                         /notas/mejor-tarde-que-nunca                         301
+/mendoexist                                    /notas/mendoexist                                    301
+/mendoza-corte-suprema-y-un-fallo-contra-la-7722 /notas/mendoza-corte-suprema-y-un-fallo-contra-la-7722 301
+/neosocialismo-la-contracara-del-llamado-neoliberalismo /notas/neosocialismo-la-contracara-del-llamado-neoliberalismo 301
+/nodio-y-su-campana-contra-el-odio             /notas/nodio-y-su-campana-contra-el-odio             301
+/nuevas-restricciones                          /notas/nuevas-restricciones                          301
+/objetivo-vacunas                              /notas/objetivo-vacunas                              301
+/otra-vez-sopa-digo-lluvia                     /notas/otra-vez-sopa-digo-lluvia                     301
+/otro-2-de-abril-una-mirada-a-las-islas-malvinas /notas/otro-2-de-abril-una-mirada-a-las-islas-malvinas 301
+/panorama-politico                             /notas/panorama-politico                             301
+/partidos-en-dos-24-de-marzo-1976              /notas/partidos-en-dos-24-de-marzo-1976              301
+/practicas-juridicas-activistas-caracterizacion-y-analisis-de-los-diversos-modos-de-usar-el-derecho /notas/practicas-juridicas-activistas-caracterizacion-y-analisis-de-los-diversos-modos-de-usar-el-derecho 301
+/primer-gran-paso                              /notas/primer-gran-paso                              301
+/que-es-el-fenomeno-milei                      /notas/que-es-el-fenomeno-milei                      301
+/que-esta-pasando-en-cuba                      /notas/que-esta-pasando-en-cuba                      301
+/que-esta-pasando-soscolombia                  /notas/que-esta-pasando-soscolombia                  301
+/recuerdo-al-general-martin-miguel-de-guemes   /notas/recuerdo-al-general-martin-miguel-de-guemes   301
+/recursos-factores-que-afectan-las-relaciones-entre-rusia-y-la-union-europea /notas/recursos-factores-que-afectan-las-relaciones-entre-rusia-y-la-union-europea 301
+/senora-es-una-nina                            /notas/senora-es-una-nina                            301
+/ser-estudiante-hoy                            /notas/ser-estudiante-hoy                            301
+/ser-y-no-ser-al-mismo-tiempo                  /notas/ser-y-no-ser-al-mismo-tiempo                  301
+/si-arrancamos-asi                             /notas/si-arrancamos-asi                             301
+/silencio                                      /notas/silencio                                      301
+/simpatizantes-de-jair-bolsonaro-tomaron-el-congreso-el-palacio-de-justicia-y-la-corte-suprema /notas/simpatizantes-de-jair-bolsonaro-tomaron-el-congreso-el-palacio-de-justicia-y-la-corte-suprema 301
+/sin-conexion-judicial                         /notas/sin-conexion-judicial                         301
+/solidaridad-suenos-que-se-cumplen             /notas/solidaridad-suenos-que-se-cumplen             301
+/superministro                                 /notas/superministro                                 301
+/un-sobreseimiento-excepcional                 /notas/un-sobreseimiento-excepcional                 301
+/una-critica-al-show-argentino                 /notas/una-critica-al-show-argentino                 301

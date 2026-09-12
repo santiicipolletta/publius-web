@@ -1,0 +1,56 @@
+---
+import { getEntry } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { fechaLarga, fechaISO } from '../lib/fechas';
+import { imagenDe, altDe } from '../lib/notas';
+
+interface Props {
+  nota: CollectionEntry<'notas'>;
+  /* Para listados densos donde la imagen no aporta */
+  sinImagen?: boolean;
+}
+
+const { nota, sinImagen = false } = Astro.props;
+const { titulo, extracto, fecha, categorias, autor } = nota.data;
+
+const datosAutor = await getEntry(autor);
+---
+
+{/* La tarjeta entera es el enlace: toda su superficie es clickeable
+    y no hay enlaces anidados, que sería HTML inválido. */}
+<a
+  href={`/notas/${nota.id}`}
+  class="group flex flex-col border border-borde bg-papel no-underline transition-colors duration-150 hover:border-navy focus-visible:border-navy">
+  {
+    !sinImagen && (
+      <img
+        src={imagenDe(nota)}
+        alt={altDe(nota)}
+        loading="lazy"
+        decoding="async"
+        width="1200"
+        height="800"
+        class="aspect-3/2 w-full object-cover"
+      />
+    )
+  }
+
+  <div class="flex flex-1 flex-col px-[22px] pt-[22px] pb-5">
+    <p class="rotulo mb-2.5">{categorias.join(' · ')}</p>
+
+    <h3
+      class="mb-2.5 text-[1.1875rem] leading-[1.25] font-bold text-tinta group-hover:underline group-hover:decoration-navy group-hover:underline-offset-[3px]">
+      {titulo}
+    </h3>
+
+    <p class="mb-3.5 line-clamp-4 text-[0.8125rem] leading-[1.55] text-tinta-2">
+      {extracto}
+    </p>
+
+    <p class="meta-linea mt-auto">
+      {datosAutor?.data.nombre ?? 'Publius Group'}{nota.data.coautores.length > 0 && ' y otros'}
+      <span aria-hidden="true"> · </span>
+      <time datetime={fechaISO(fecha)}>{fechaLarga(fecha)}</time>
+    </p>
+  </div>
+</a>

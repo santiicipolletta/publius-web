@@ -1,0 +1,39 @@
+---
+titulo: "La Pera y el Fiambre"
+extracto: "Es imperioso conocer la finalidad de los espacios que uno integra. Reconozco que lo alusivo en esta nota escapa al espíritu de este espacio."
+autor: manuel-carrasco
+fecha: 2021-04-08
+categorias: ["Opinión"]
+tags: ["la-pera-y-el-fiambre-publius"]
+fuenteOriginal: "https://web.archive.org/web/20220525202742/https://publius.com.ar/la-pera-y-el-fiambre/"
+---
+
+> “Lo que pasa hoy en Argentina es trágico. Nuestra generación no debe caer en la ruin actividad de ignorar. La vida real pasa afuera de las caretas de las redes sociales, lo duro es lo que está más allá de tu puerta.”
+
+Al señor jefe de redacción:
+
+Es imperioso conocer la finalidad de los espacios que uno integra. Reconozco que lo alusivo en esta nota escapa al espíritu de este espacio. La academicidad y la investigación son, en efecto, la característica distintiva de este valioso soporte de difusión.
+
+Hoy me tomo el atrevimiento de salir de ese marco y expresar una observación de nuestra realidad. De previo aviso recalco que recaeré en el error de tomar mi persona como parámetro, campo en el que es claro el sesgo que puede hallarse. Lo subjetivo hablando vulgarmente hace referencia a lo poco comprobable empíricamente, lo contrario a lo concreto. Es curioso además observar que el término subjetivo hace referencia a lo que pertenece al sujeto, a un individuo en sí. Al lector de esta nota le advierto, no hay mejor adjetivo que subjetivo para calificar las siguientes palabras.
+
+<strong><em>La pera.</em></strong>
+
+La mañana del 7 de abril en Nueva Córdoba. Para quien no conoce este es un barrio de clase media alta, donde la mayoría de los que circulan por las calles no superan los 30 años. Se respira un aire a oportunidad, todos los jóvenes que vienen aquí están de paso a convertirse en lo que sueñan y aspiran ser. Los bares son pintorescos, las calles rodeadas de edificios y un parque que hace de pulmón para esa aglomeración. Por supuesto no todo es bello por estos lares, los autos crean una música típica de embotellamiento y las obras de construcción colaboran con el caos. Pero lo que más molesta aquí es la basura. Nuestra gran protagonista es hija propia del consumo y de la aglomeración, en ese afán de ir rápido, la basura se acumula generando suciedad y olor. Muchos han tratado de solucionar el problema pero ha sido en vano.
+
+La conciencia, la presión social o ambas… no se cual fue el motivo real de fondo pero lo cierto es que hace un par de años aparecieron en el barrio grandes contenedores para separar los residuos. Secos por un lado y orgánicos o húmedos por otro. Como mellizas inseparables cada cuadra cuenta con estas. Lamentablemente no dan abasto, es común aún ver los contenedores desbordados y la basura en ocasiones dispersa en la vereda.
+
+Es una mañana nublada pero no muy fría, ideal para salir a ejercitarse. Hace un año que vivimos entre el encierro y los protocolos, poco queda de normalidad. Los trabajos escasean y cada día todo es más caro. El barrio ha tenido un crecimiento, pero lejos de ser alentador es lamentable. Esta zona residencial de Córdoba posee gran cantidad de entradas de edificios y halls, hoy estos espacios son los más demandados para dormir. El barrio de la oportunidad se está convirtiendo en el último refugio de los caídos. Es una imagen que semana a semana se agranda, caminar entre colchones húmedos hoy es normal. La llegada de los nuevos inquilinos tiene un trasfondo aún más oscuro. En los contenedores de los secos se encuentra fuente de trabajo. Cada día se observan más carritos de cartoneros rondando la zona y buscando materia prima para hacer unos pocos pesos más tarde. Pero lo más alarmante es lo que ocurre en los contenedores negros, los húmedos.
+
+Me preparo a salir, como es costumbre selecciono un podcast esta vez fue un episodio de “Renegades”, una serie protagonizada por Bruce Springsteen, un músico al que poco escuche y Barack Obama, un personaje moralmente complejo al que hablando se lo puede encontrar enriquecedor, pero estudiando sus hechos deja mucho que desear si se dice poco. Dos cuadras más adelante la primera situación, Independencia y Derqui, una casona blanca tiene en su frente 3 personas durmiendo en 2 colchones húmedos. 50 metros más adelante observo un contenedor verde con un par de piernas saliendo de la boca principal y un carrito blanco, es un cartonero tratando de alcanzar algún que otro retazo olvidado del día anterior. Independencia y Estrada, la deshumanización total. Esta vez el contenedor es negro, una mujer tiene en sus manos una pera a medio comer y una niña de la mano, en la boca de la mujer la pera se deshace con energía, se nota su desesperación, la niña espera. Esta escena se da en frente de una panadería. Mi cabeza hace silencio. Esa sensación es indescriptible, no hay causa ni justificación, esa basura molesta y olorosa de la que nos quejamos hoy es el alimento de los que el poder egoísta está destruyendo. Y cada vez son más.
+
+Sigo caminando y pienso qué fácil olvidamos todo. A usted mismo leyendo esto ya se le olvido de las primeras tres personas durmiendo en dos colchones húmedos. Deshumanizar es mucho más fácil que darle entidad e importancia al otro.
+
+<strong><em>El fiambre.</em></strong>
+
+La caminata continúa. El día anterior había culminado un viaje. Tres parejas, una habitación barata y paisajes hermosos. El interior de Córdoba a veces es confundible con pequeños pueblos suizos o alemanes, las vistas de los ríos son incomparables y la tranquilidad impera. “Tal vez volví muy reflexivo y por eso me afecta tanto la pera”, pienso. En eso Bruce Springsteen suelta una frase en el podcast. “Se puede amar a tu país y a la vez ser severamente crítico de el” Obama la explica. En mi cabeza trazo un paralelismo ineludible. La belleza de nuestro territorio argentino y la miseria de los contenedores negros. Como no amar lo primero y como no criticar hasta el hartazgo lo segundo.
+
+La deshumanización total, vuelve a mi cabeza una imagen. Volviendo del viaje en la ruta se hace un embotellamiento inesperado y nos frenamos. No se ve muy bien, es de noche y las luces de las sirenas policiales encandilan. A lo lejos vemos un auto dado vuelta, un accidente automovilístico, principal asesino en nuestro país. Pasamos por su costado, mi ventanilla está en dirección al accidente. Una manta de policía le tapaba el rostro, el cuerpo aparentemente masculino yacía en el frío asfalto, su auto estaba encima de él, no se veía mucho pero tampoco se podía ignorar la tragedia. Aviso a mis compañeros de viaje lo que vi, su respuesta fue contundente. Mis amigos en su mayoría son personas que admiro y que sé que aportan a mi vida algo valioso, no dudo de la nobleza y moralidad de ellos, pero en un gesto inocente uno me responde: “¿Un fiambre?”. La tragedia deshumaniza. Seguimos viaje. A día de hoy no se volvió a mencionar el tema. Olvidamos fácil.
+
+Lo que pasa hoy en Argentina es trágico. Nuestra generación no debe caer en la ruin actividad de ignorar. La vida real pasa afuera de las caretas de las redes sociales, lo duro es lo que está más allá de tu puerta. El aire de oportunidad también debe incluir el trabajo para salir de este escándalo al que llamamos país.
+
+Los demás son como vos, lo que vos sufrís lo puede sufrir otro, parece tonto lo que digo pero evidentemente es necesario. En Buenos Aires y San Lorenzo hay un quiosco en una esquina, en un rincón de ahí siempre hay un plato de comida, resulta que hace años un par de perros callejeros viven por la zona y es una prioridad su alimentación. 7 Cuadras más alla los contenedores negros contienen las peras de los desesperados. No quiero que mi generación sea la de los perros gordos y la de los humanos invisibles de la basura. No, nada de esto es normal, lo tenemos que cambiar y el primer paso para hacerlo es dejar de ignorar el problema.

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img">
+  <rect width="1200" height="800" fill="#091528"/>
+  <g stroke="rgba(181,185,191,0.16)" stroke-width="1">
+    <line x1="0" y1="66" x2="1200" y2="66"/>
+    <line x1="0" y1="132" x2="1200" y2="132"/>
+    <line x1="0" y1="198" x2="1200" y2="198"/>
+    <line x1="0" y1="264" x2="1200" y2="264"/>
+    <line x1="0" y1="330" x2="1200" y2="330"/>
+    <line x1="0" y1="396" x2="1200" y2="396"/>
+    <line x1="0" y1="462" x2="1200" y2="462"/>
+    <line x1="0" y1="528" x2="1200" y2="528"/>
+    <line x1="0" y1="594" x2="1200" y2="594"/>
+    <line x1="0" y1="660" x2="1200" y2="660"/>
+    <line x1="0" y1="726" x2="1200" y2="726"/>
+  </g>
+  <g>
+    <path d="M 600.0 140.0 A 290 290 0 1 1 327.5 529.2" fill="none" stroke="rgba(181,185,191,0.42)" stroke-width="30" stroke-linecap="butt"/>
+    <path d="M 319.9 505.1 A 290 290 0 0 1 455.0 178.9" fill="none" stroke="rgba(181,185,191,0.90)" stroke-width="30" stroke-linecap="butt"/>
+    <path d="M 678.7 213.9 A 230 230 0 0 1 521.3 646.1" fill="none" stroke="rgba(181,185,191,0.16)" stroke-width="24" stroke-linecap="butt"/>
+    <path d="M 502.8 638.5 A 230 230 0 0 1 400.8 315.0" fill="none" stroke="rgba(181,185,191,0.42)" stroke-width="24" stroke-linecap="butt"/>
+    <path d="M 600.0 260.0 A 170 170 0 0 1 709.3 560.2" fill="none" stroke="rgba(181,185,191,0.90)" stroke-width="18" stroke-linecap="butt"/>
+    <path d="M 690.1 574.2 A 170 170 0 0 1 440.3 371.9" fill="none" stroke="rgba(181,185,191,0.42)" stroke-width="18" stroke-linecap="butt"/>
+    <circle cx="600" cy="430" r="58" fill="rgba(181,185,191,0.42)"/>
+  </g>
+</svg>

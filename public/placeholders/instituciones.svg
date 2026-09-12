@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img">
+  <rect width="1200" height="800" fill="#091528"/>
+  <g stroke="rgba(181,185,191,0.16)" stroke-width="1">
+    <line x1="0" y1="66" x2="1200" y2="66"/>
+    <line x1="0" y1="132" x2="1200" y2="132"/>
+    <line x1="0" y1="198" x2="1200" y2="198"/>
+    <line x1="0" y1="264" x2="1200" y2="264"/>
+    <line x1="0" y1="330" x2="1200" y2="330"/>
+    <line x1="0" y1="396" x2="1200" y2="396"/>
+    <line x1="0" y1="462" x2="1200" y2="462"/>
+    <line x1="0" y1="528" x2="1200" y2="528"/>
+    <line x1="0" y1="594" x2="1200" y2="594"/>
+    <line x1="0" y1="660" x2="1200" y2="660"/>
+    <line x1="0" y1="726" x2="1200" y2="726"/>
+  </g>
+  <g>
+    <rect x="270" y="215" width="660" height="22" fill="rgba(181,185,191,0.90)"/>
+    <polygon points="600,120 940,205 260,205" fill="rgba(181,185,191,0.42)"/>
+    <rect x="305" y="255" width="58" height="330" fill="rgba(181,185,191,0.42)"/>
+    <rect x="453" y="255" width="58" height="330" fill="rgba(181,185,191,0.42)"/>
+    <rect x="601" y="255" width="58" height="330" fill="rgba(181,185,191,0.90)"/>
+    <rect x="749" y="255" width="58" height="330" fill="rgba(181,185,191,0.42)"/>
+    <rect x="897" y="255" width="58" height="330" fill="rgba(181,185,191,0.42)"/>
+    <rect x="250" y="600" width="700" height="26" fill="rgba(181,185,191,0.90)"/>
+  </g>
+</svg>

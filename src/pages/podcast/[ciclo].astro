@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaMultimedia from '../../components/CtaMultimedia.astro';
+import EpisodioFila from '../../components/EpisodioFila.astro';
+import { CICLOS, episodiosDe, minutosDe, porMes } from '../../lib/podcast';
+
+export async function getStaticPaths() {
+  return CICLOS.map((ciclo) => ({
+    params: { ciclo: ciclo.slug },
+    props: { ciclo },
+  }));
+}
+
+const { ciclo } = Astro.props;
+const episodios = episodiosDe(ciclo.slug);
+const minutos = minutosDe(ciclo.slug);
+
+/* Un informativo diario de 194 episodios se recorre por mes; un ciclo
+   de 18 entrevistas temáticas, de corrido. */
+const porTramos = episodios.length > 30;
+const tramos = porTramos ? porMes(episodios) : [];
+---
+
+<Base
+  titulo={ciclo.nombre}
+  descripcion={`${ciclo.episodios} episodios de ${ciclo.nombre}, el ${ciclo.formato.toLowerCase()} de Publius Group.`}>
+  <header class="border-b border-borde bg-papel">
+    <div class="contenedor pt-11 pb-9">
+      <p class="rotulo mb-2.5 text-tinta-3">{ciclo.formato}</p>
+      <h1 class="mb-3 text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-tinta">{ciclo.nombre}</h1>
+      <p class="mb-5 max-w-[58ch] text-[1.05rem] leading-[1.65] text-tinta-2">
+        {ciclo.descripcion}
+      </p>
+      <p class="meta-linea">{episodios.length} episodios · {minutos} minutos de audio</p>
+
+      <div class="mt-6 flex max-w-xl flex-col gap-2 sm:flex-row">
+        <div class="flex-1">
+          <CtaMultimedia
+            plataforma="spotify"
+            href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+            detalle={ciclo.nombre}
+          />
+        </div>
+        <div class="flex-1">
+          <CtaMultimedia
+            plataforma="youtube"
+            href="https://www.youtube.com/@publiusgroup"
+            detalle={ciclo.nombre}
+          />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="contenedor pb-14">
+    {
+      porTramos ? (
+        /* --- Agrupado por mes --- */
+        <div class="pt-4">
+          {tramos.map((tramo, i) => (
+            <section class="mb-8">
+              <div class="barra-seccion">
+                <h2 class="rotulo">{tramo.etiqueta}</h2>
+                <p class="meta-linea">
+                  {tramo.episodios.length} {tramo.episodios.length === 1 ? 'episodio' : 'episodios'}
+                </p>
+              </div>
+              {/* El mes más reciente arranca abierto; el resto, plegado,
+                  para que la página se pueda recorrer de un vistazo. */}
+              <details class="mt-1" open={i === 0}>
+                <summary class="cursor-pointer list-none py-3 text-[0.8125rem] font-semibold text-navy marker:content-none hover:underline hover:underline-offset-[3px]">
+                  Ver los episodios de {tramo.etiqueta.toLowerCase()}
+                </summary>
+                <div class="border-t border-borde">
+                  {tramo.episodios.map((ep) => (
+                    <EpisodioFila episodio={ep} />
+                  ))}
+                </div>
+              </details>
+            </section>
+          ))}
+        </div>
+      ) : (
+        /* --- Lista de corrido, con la descripción a la vista --- */
+        <div class="pt-8">
+          <div class="barra-seccion">
+            <h2 class="rotulo">Todos los episodios</h2>
+            <p class="meta-linea">del más nuevo al más viejo</p>
+          </div>
+          <div class="mt-1">
+            {episodios.map((ep) => (
+              <EpisodioFila episodio={ep} abierto />
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <p class="mt-10">
+      <a
+        href="/podcast"
+        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]">
+        &larr;&nbsp;Volver al podcast
+      </a>
+    </p>
+  </section>
+</Base>

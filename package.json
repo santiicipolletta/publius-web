@@ -1,0 +1,32 @@
+{
+  "name": "web",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "verificar": "node scripts/verificar.mjs",
+    "rescate:listar": "node scripts/rescate/listar.mjs",
+    "rescate:bajar": "node scripts/rescate/bajar.mjs",
+    "rescate:convertir": "node scripts/rescate/convertir.mjs",
+    "rescate:revisar": "node scripts/rescate/revisar.mjs",
+    "build": "node scripts/verificar.mjs && node scripts/generar-redirecciones.mjs && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "placeholders": "node scripts/generar-placeholders.mjs",
+    "podcast:feed": "node scripts/podcast/bajar-feed.mjs",
+    "redirecciones": "node scripts/generar-redirecciones.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "tailwindcss": "^4.3.3"
+  },
+  "allowScripts": {
+    "esbuild": true
+  }
+}

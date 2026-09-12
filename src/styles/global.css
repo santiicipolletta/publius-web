@@ -1,0 +1,230 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   Publius Group — sistema de diseño
+   ============================================================
+   Los colores de marca salieron con cuentagotas de los logos
+   oficiales (Redes/Gráficas Nuevas/).
+
+   Regla de la paleta, en orden de dominancia:
+     1. Blanco y grises muy claros  → fondo de todo el cuerpo
+     2. Navy                        → cabecera y acentos menores
+     3. Rojo oscuro / verde oscuro  → SÓLO CTAs de YouTube y Spotify
+
+   Los acentos multimedia no se usan para nada más: si aparecen
+   en la página, es porque llevan a un video o a un podcast.
+   ============================================================ */
+
+@theme {
+  /* --- Marca --- */
+  --color-navy: #091528;
+  --color-navy-soft: #0f1e36;
+  --color-navy-line: #1c2a42;
+  --color-marca: #b5b9bf;
+
+  /* --- Superficies: el blanco y los grises muy claros dominan --- */
+  --color-papel: #ffffff; /* tarjetas */
+  --color-fondo: #f7f8fa; /* fondo general del cuerpo */
+  --color-fondo-2: #eef0f4; /* bandas de separación */
+  --color-borde: #e4e7ec; /* hairline de las tarjetas */
+  --color-borde-fuerte: #d3d8e0;
+
+  /* --- Texto --- */
+  /* Los tres tonos de texto pasan AA (4.5:1) sobre blanco y sobre
+     el gris del fondo. El más claro llegaba a 3.1:1 y se usa para
+     la línea de autor y fecha, que es contenido y no decoración. */
+  --color-tinta: #14213a; /* títulos y cuerpo — 16.1:1 */
+  --color-tinta-2: #55606f; /* bajadas — 6.4:1 */
+  --color-tinta-3: #6a7280; /* metadatos — 4.9:1 */
+
+  /* --- Acentos multimedia (uso exclusivo) --- */
+  --color-yt: #8a1017; /* rojo oscuro  → YouTube */
+  --color-yt-alto: #6b0c12;
+  --color-sp: #0e4429; /* verde oscuro → Spotify / Podcast */
+  --color-sp-alto: #0a3220;
+
+  /* --- Tipografía: geométrica y moderna en todo --- */
+  --font-sans:
+    'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* --- Medidas del layout, tomadas de la referencia --- */
+  --spacing-medida: 68ch; /* ancho de lectura cómoda */
+}
+
+/* El contenedor de la referencia: 1280px de ancho máximo */
+@utility contenedor {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-fondo);
+    color: var(--color-tinta);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    line-height: 1.16;
+    letter-spacing: -0.022em;
+    text-wrap: balance;
+  }
+
+  /* Los títulos y las bajadas no se parten en líneas huérfanas */
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Foco visible en toda la interfaz: navegar con teclado tiene que verse */
+  :where(a, button, input, summary):focus-visible {
+    outline: 2px solid var(--color-navy);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Sobre el navy el foco tiene que ser claro para poder verse */
+  .sobre-navy :where(a, button, summary):focus-visible {
+    outline-color: var(--color-marca);
+  }
+}
+
+/* --- Rótulo de categoría ------------------------------------
+   10px / 800 / tracking amplio, como en la referencia. Va en
+   navy: el rojo y el verde están reservados a los CTAs. */
+@utility rotulo {
+  font-size: 0.625rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--color-navy);
+}
+
+/* --- Metadatos: autor · fecha --- */
+@utility meta-linea {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--color-tinta-3);
+}
+
+/* --- Encabezado de sección: título a la izquierda, "ver todas"
+       a la derecha, separados por una línea --- */
+@utility barra-seccion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.5rem 0.625rem;
+  border-bottom: 1px solid var(--color-borde-fuerte);
+}
+
+/* --- Salto al contenido (accesibilidad de teclado) --- */
+@utility saltar {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-navy);
+  color: #fff;
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  &:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
+/* --- Cuerpo de las notas ------------------------------------
+   Estilos del texto largo que sale del Markdown. */
+@utility prosa {
+  font-size: 1.0625rem;
+  line-height: 1.78;
+  color: var(--color-tinta);
+
+  & > * + * {
+    margin-top: 1.15em;
+  }
+
+  & h2 {
+    margin-top: 2.4em;
+    font-size: 1.5rem;
+  }
+  & h3 {
+    margin-top: 1.9em;
+    font-size: 1.2rem;
+  }
+
+  & a {
+    text-decoration: underline;
+    text-decoration-color: var(--color-navy);
+    text-underline-offset: 3px;
+  }
+
+  & blockquote {
+    margin-block: 2rem;
+    padding-left: 1.35rem;
+    border-left: 3px solid var(--color-navy);
+    font-size: 1.14rem;
+    line-height: 1.6;
+  }
+
+  & ul,
+  & ol {
+    padding-left: 1.3rem;
+  }
+  & ul {
+    list-style: disc;
+  }
+  & ol {
+    list-style: decimal;
+  }
+  & li + li {
+    margin-top: 0.5rem;
+  }
+
+  & hr {
+    margin-block: 2.6rem;
+    border: 0;
+    border-top: 1px solid var(--color-borde);
+  }
+
+  & img {
+    margin-block: 2rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

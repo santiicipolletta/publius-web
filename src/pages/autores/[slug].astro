@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import NotaCard from '../../components/NotaCard.astro';
+import { getCollection } from 'astro:content';
+import { notasDe } from '../../lib/notas';
+
+export async function getStaticPaths() {
+  const autores = await getCollection('autores');
+  return autores.map((autor) => ({
+    params: { slug: autor.id },
+    props: { autor },
+  }));
+}
+
+const { autor } = Astro.props;
+const { nombre, rol, temas, presentacion, foto, instagram, twitter, linkedin } = autor.data;
+
+const notas = await notasDe(autor.id);
+
+const redes = [
+  instagram && { nombre: 'Instagram', url: `https://instagram.com/${instagram.replace('@', '')}` },
+  twitter && { nombre: 'X', url: `https://x.com/${twitter.replace('@', '')}` },
+  linkedin && { nombre: 'LinkedIn', url: linkedin },
+].filter(Boolean) as { nombre: string; url: string }[];
+---
+
+<Base titulo={nombre} descripcion={`${nombre} en Publius Group. ${presentacion}`}>
+  <header class="border-b border-borde bg-papel">
+    <div class="contenedor flex flex-wrap items-start gap-7 pt-11 pb-9">
+      {
+        foto && (
+          <img
+            src={foto}
+            alt={nombre}
+            width="160"
+            height="160"
+            class="size-24 shrink-0 border border-borde object-cover"
+          />
+        )
+      }
+
+      <div class="min-w-0 flex-1">
+        <h1 class="mb-3 text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-tinta">{nombre}</h1>
+
+        {rol && <p class="rotulo mb-3 text-tinta-3">{rol}</p>}
+
+        {/* De qué escribe: los temas primero, como entrada rápida */}
+        <ul class="mb-5 flex list-none flex-wrap gap-2">
+          {
+            temas.map((t) => (
+              <li class="border border-borde bg-fondo px-2.5 py-1 text-[0.75rem] text-tinta-2">
+                {t}
+              </li>
+            ))
+          }
+        </ul>
+
+        <p class="max-w-[62ch] text-[1.05rem] leading-[1.65] text-tinta-2">{presentacion}</p>
+
+        {
+          redes.length > 0 && (
+            <p class="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+              {redes.map((r) => (
+                <a
+                  href={r.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]">
+                  {r.nombre}
+                </a>
+              ))}
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </header>
+
+  <section class="contenedor pb-14">
+    <div class="barra-seccion">
+      <h2 class="rotulo">Sus notas</h2>
+      <a
+        href="/autores"
+        class="meta-linea text-navy no-underline hover:underline hover:underline-offset-[3px]">
+        Ver todas las firmas
+      </a>
+    </div>
+
+    {
+      notas.length > 0 ? (
+        <div class="grid grid-cols-1 gap-3 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          {notas.map((nota) => (
+            <NotaCard nota={nota} />
+          ))}
+        </div>
+      ) : (
+        <p class="pt-8 text-tinta-2">Todavía no hay notas publicadas con esta firma.</p>
+      )
+    }
+  </section>
+</Base>

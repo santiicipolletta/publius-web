@@ -1,0 +1,7 @@
+# Publius Group — publiusgroup.com
+# Todo el sitio es público y se puede indexar.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://publiusgroup.com/sitemap-index.xml

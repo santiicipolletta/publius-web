@@ -1,0 +1,133 @@
+---
+import { CATEGORIAS } from '../content.config';
+import { slugCategoria } from '../lib/notas';
+
+interface Props {
+  /* En el home el logotipo va grande y centrado. En el resto del
+     sitio la cabecera se compacta para no robarle espacio al texto. */
+  portada?: boolean;
+}
+
+const { portada = false } = Astro.props;
+
+const aqui = Astro.url.pathname;
+const activo = (ruta: string) =>
+  aqui === ruta || (ruta !== '/' && aqui.startsWith(ruta));
+
+const enlaces = [
+  { texto: 'Autores', href: '/autores' },
+  { texto: 'Podcast', href: '/podcast' },
+];
+---
+
+<header class="sobre-navy bg-navy text-white">
+  <div class="contenedor">
+    {/* --- El logotipo, solo. Sin lema ni subtítulos. --------------
+        No es una imagen: es texto con dos pesos distintos, igual que
+        el logo oficial. Así queda nítido en cualquier pantalla, se
+        puede seleccionar y pesa cero. */}
+    <div class:list={[portada ? 'pt-14 pb-9 text-center' : 'pt-7 pb-5']}>
+      <a
+        href="/"
+        class="inline-block leading-none tracking-[-0.03em] no-underline"
+        aria-label="Publius Group — inicio">
+        <span
+          class:list={[
+            'font-bold text-white',
+            portada ? 'text-[clamp(2.4rem,8vw,4.5rem)]' : 'text-[clamp(1.4rem,4vw,1.8rem)]',
+          ]}>Publius</span><span
+          class:list={[
+            'font-light text-marca',
+            portada ? 'text-[clamp(2.4rem,8vw,4.5rem)]' : 'text-[clamp(1.4rem,4vw,1.8rem)]',
+          ]}>Group</span>
+      </a>
+    </div>
+
+    {/* --- Navegación: una línea fina, sin protagonismo --- */}
+    <nav
+      class:list={[
+        'flex flex-wrap items-center gap-x-7 gap-y-2 border-t border-navy-line py-3.5',
+        portada && 'justify-center',
+      ]}
+      aria-label="Navegación principal">
+      <details class="group relative">
+        <summary
+          class:list={[
+            'cursor-pointer list-none text-[0.8125rem] font-medium tracking-wide transition-colors marker:content-none hover:text-white',
+            activo('/notas') || activo('/categoria') ? 'text-white' : 'text-marca',
+          ]}>
+          Notas
+          {/* Chevron en SVG: el carácter ▾ no existe en Poppins y el
+              navegador lo reemplazaba por un punto. */}
+          <svg
+            viewBox="0 0 12 8"
+            class="ml-1 inline-block size-2.5 align-middle transition-transform duration-150 group-open:rotate-180"
+            aria-hidden="true">
+            <path
+              d="M1 1.5 6 6.5 11 1.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"></path>
+          </svg>
+        </summary>
+
+        <ul
+          class="absolute top-full left-0 z-50 mt-2.5 min-w-52 list-none border border-navy-line bg-navy-soft p-1.5 shadow-[0_14px_34px_rgba(0,0,0,0.34)]">
+          <li>
+            <a
+              href="/notas"
+              class="block px-3 py-2 text-[0.8125rem] text-marca no-underline hover:bg-navy hover:text-white"
+              >Todas las notas</a>
+          </li>
+          {
+            CATEGORIAS.map((c) => (
+              <li>
+                <a
+                  href={`/categoria/${slugCategoria(c)}`}
+                  class="block px-3 py-2 text-[0.8125rem] text-marca no-underline hover:bg-navy hover:text-white">
+                  {c}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+
+      {
+        enlaces.map((e) => (
+          <a
+            href={e.href}
+            class:list={[
+              'text-[0.8125rem] font-medium tracking-wide no-underline transition-colors hover:text-white',
+              activo(e.href) ? 'text-white' : 'text-marca',
+            ]}>
+            {e.texto}
+          </a>
+        ))
+      }
+
+      {/* Los dos enlaces multimedia llevan su punto de color: es la
+          única señal de rojo y verde en toda la navegación. */}
+      <a
+        href="https://www.youtube.com/@publiusgroup"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="flex items-center gap-2 text-[0.8125rem] font-medium tracking-wide text-marca no-underline transition-colors hover:text-white">
+        <span class="size-2 shrink-0 rounded-full bg-yt ring-1 ring-white/25" aria-hidden="true"
+        ></span>
+        YouTube
+      </a>
+      <a
+        href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="flex items-center gap-2 text-[0.8125rem] font-medium tracking-wide text-marca no-underline transition-colors hover:text-white">
+        <span class="size-2 shrink-0 rounded-full bg-sp ring-1 ring-white/25" aria-hidden="true"
+        ></span>
+        Spotify
+      </a>
+    </nav>
+  </div>
+</header>

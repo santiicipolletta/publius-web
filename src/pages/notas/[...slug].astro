@@ -1,0 +1,162 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection, getEntry, render } from 'astro:content';
+import { fechaLarga, fechaISO } from '../../lib/fechas';
+import { slugCategoria, notasDe, imagenDe, altDe } from '../../lib/notas';
+
+export async function getStaticPaths() {
+  const notas = await getCollection('notas', ({ data }) => !data.borrador);
+  return notas.map((nota) => ({
+    params: { slug: nota.id },
+    props: { nota },
+  }));
+}
+
+const { nota } = Astro.props;
+const { titulo, extracto, fecha, categorias, tags, autor, coautores, fuenteOriginal } = nota.data;
+
+const { Content } = await render(nota);
+const datosAutor = await getEntry(autor);
+
+/* Las notas escritas entre varias personas acreditan a todas */
+const datosCoautores = await Promise.all(coautores.map((c) => getEntry(c)));
+const firmas = [
+  { id: autor.id, nombre: datosAutor?.data.nombre },
+  ...datosCoautores.map((c) => ({ id: c!.id, nombre: c!.data.nombre })),
+].filter((f) => f.nombre);
+
+/* Otras notas de la misma persona, para el pie de la nota */
+const masDelAutor = (await notasDe(autor.id)).filter((n) => n.id !== nota.id).slice(0, 3);
+---
+
+<Base titulo={titulo} descripcion={extracto} tipo="article">
+  <article>
+    {/* --- Encabezado sobre papel blanco --- */}
+    <header class="border-b border-borde bg-papel">
+      <div class="contenedor max-w-[860px] pt-12 pb-9">
+        <p class="mb-3.5 flex flex-wrap gap-x-3.5">
+          {
+            categorias.map((c) => (
+              <a href={`/categoria/${slugCategoria(c)}`} class="rotulo no-underline hover:underline">
+                {c}
+              </a>
+            ))
+          }
+        </p>
+
+        <h1 class="mb-4 max-w-[28ch] text-[clamp(1.9rem,4.4vw,2.9rem)] font-bold text-tinta">
+          {titulo}
+        </h1>
+
+        <p class="mb-6 max-w-[58ch] text-[clamp(1.05rem,2vw,1.2rem)] leading-[1.6] text-tinta-2">
+          {extracto}
+        </p>
+
+        <p class="meta-linea">
+          Por&nbsp;{
+            firmas.map((f, i) => (
+              <>
+                {i > 0 && <span>{i === firmas.length - 1 ? ' y ' : ', '}</span>}
+                <a
+                  href={`/autores/${f.id}`}
+                  class="text-tinta no-underline hover:underline hover:underline-offset-[3px]">
+                  {f.nombre}
+                </a>
+              </>
+            ))
+          }
+          <span aria-hidden="true"> · </span>
+          <time datetime={fechaISO(fecha)}>{fechaLarga(fecha)}</time>
+        </p>
+      </div>
+    </header>
+
+    <div class="contenedor max-w-[860px]">
+      <img
+        src={imagenDe(nota)}
+        alt={altDe(nota)}
+        width="1200"
+        height="800"
+        fetchpriority="high"
+        decoding="async"
+        class="mt-9 aspect-16/9 w-full border border-borde object-cover"
+      />
+
+      {/* --- El cuerpo del texto --- */}
+      <div class="prosa mt-10 max-w-[68ch]">
+        <Content />
+      </div>
+
+      {
+        tags.length > 0 && (
+          <ul class="mt-10 flex max-w-[68ch] list-none flex-wrap gap-2">
+            {tags.map((t) => (
+              <li class="border border-borde bg-papel px-2.5 py-1 text-[0.75rem] text-tinta-2">
+                {t}
+              </li>
+            ))}
+          </ul>
+        )
+      }
+
+      {
+        fuenteOriginal && (
+          <p class="mt-8 max-w-[68ch] text-[0.8125rem] text-tinta-3">
+            Esta nota fue recuperada del archivo del sitio original.{' '}
+            <a
+              href={fuenteOriginal}
+              rel="noopener noreferrer"
+              target="_blank"
+              class="text-tinta-2 underline underline-offset-[3px]">
+              Ver la versión archivada
+            </a>
+          </p>
+        )
+      }
+
+      {/* --- Ficha del autor al pie --- */}
+      {
+        datosAutor && (
+          <aside class="mt-14 mb-16 max-w-[68ch] border border-borde bg-papel p-7">
+            <p class="rotulo mb-2.5 text-tinta-3">Sobre qué escribe</p>
+
+            <p class="mb-2 flex flex-wrap items-baseline gap-x-3">
+              <a
+                href={`/autores/${autor.id}`}
+                class="text-[1.1rem] font-semibold text-tinta no-underline hover:underline hover:underline-offset-[3px]">
+                {datosAutor.data.nombre}
+              </a>
+              {datosAutor.data.rol && (
+                <span class="rotulo text-tinta-3">{datosAutor.data.rol}</span>
+              )}
+            </p>
+
+            <ul class="mb-3 flex list-none flex-wrap gap-1.5">
+              {datosAutor.data.temas.map((t) => (
+                <li class="border border-borde bg-fondo px-2 py-0.5 text-[0.6875rem] text-tinta-2">
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <p class="text-[0.95rem] text-tinta-2">{datosAutor.data.presentacion}</p>
+
+            {masDelAutor.length > 0 && (
+              <ul class="mt-5 list-none border-t border-borde pt-4">
+                {masDelAutor.map((n) => (
+                  <li class="border-b border-borde last:border-0">
+                    <a
+                      href={`/notas/${n.id}`}
+                      class="block py-2.5 text-[0.9375rem] font-medium text-tinta no-underline hover:underline hover:underline-offset-[3px]">
+                      {n.data.titulo}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </aside>
+        )
+      }
+    </div>
+  </article>
+</Base>

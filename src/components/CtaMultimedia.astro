@@ -1,0 +1,63 @@
+---
+/* Los dos únicos elementos del sitio que usan rojo y verde.
+   Si ves uno de estos colores en la página, lleva a un video o a
+   un podcast: es la convención y no se rompe en ningún otro lugar. */
+
+interface Props {
+  plataforma: 'youtube' | 'spotify';
+  href: string;
+  /* Qué se encuentra del otro lado */
+  detalle: string;
+}
+
+const { plataforma, href, detalle } = Astro.props;
+
+/* Sólo los enlaces que salen del sitio abren en otra pestaña */
+const externo = /^https?:\/\//i.test(href);
+
+const config = {
+  youtube: {
+    nombre: 'YouTube',
+    rotulo: 'Ver',
+    fondo: 'bg-yt hover:bg-yt-alto',
+    /* Logo oficial de YouTube, simplificado a un solo trazo */
+    icono:
+      'M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8ZM9.5 15.6V8.4l6.3 3.6-6.3 3.6Z',
+  },
+  spotify: {
+    nombre: 'Spotify',
+    rotulo: 'Escuchar',
+    fondo: 'bg-sp hover:bg-sp-alto',
+    /* Logo oficial de Spotify, simplificado */
+    icono:
+      'M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.6 0 12 0Zm5.5 17.3a.75.75 0 0 1-1 .25c-2.8-1.7-6.3-2.1-10.4-1.2a.75.75 0 1 1-.33-1.46c4.5-1 8.4-.55 11.5 1.35a.75.75 0 0 1 .25 1.06Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.2-1.97-8.08-2.54-11.87-1.39a.94.94 0 1 1-.54-1.8c4.33-1.31 9.7-.68 13.38 1.58a.94.94 0 0 1 .31 1.3Zm.13-3.4C15.36 8.36 9.0 8.15 5.34 9.26a1.12 1.12 0 1 1-.65-2.15C8.89 5.83 15.92 6.08 20.2 8.62a1.12 1.12 0 0 1-1.15 1.93l.05.08Z',
+  },
+}[plataforma];
+---
+
+<a
+  href={href}
+  rel={externo ? 'noopener noreferrer' : undefined}
+  target={externo ? '_blank' : undefined}
+  class:list={[
+    'group flex items-center gap-3.5 px-4 py-3.5 text-white no-underline transition-colors duration-150',
+    config.fondo,
+  ]}>
+  <svg
+    viewBox="0 0 24 24"
+    class="size-[1.35rem] shrink-0 fill-current opacity-90"
+    aria-hidden="true">
+    <path d={config.icono} />
+  </svg>
+
+  <span class="min-w-0 flex-1">
+    <span class="block text-[0.625rem] font-extrabold tracking-[0.12em] uppercase opacity-75">
+      {config.rotulo} en {config.nombre}
+    </span>
+    <span class="block truncate text-[0.875rem] font-medium">{detalle}</span>
+  </span>
+
+  <span
+    class="shrink-0 transition-transform duration-150 group-hover:translate-x-1"
+    aria-hidden="true">&rarr;</span>
+</a>

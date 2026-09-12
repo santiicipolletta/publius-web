@@ -1,0 +1,18 @@
+# Cabeceras HTTP del sitio (formato de Cloudflare Pages).
+
+/*
+  # No permitir que otro sitio meta Publius dentro de un iframe
+  X-Frame-Options: SAMEORIGIN
+  # No adivinar el tipo de archivo: usar el que declara el servidor
+  X-Content-Type-Options: nosniff
+  # Al salir del sitio, no filtrar la ruta completa de origen
+  Referrer-Policy: strict-origin-when-cross-origin
+  # El sitio no usa cámara, micrófono ni ubicación
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Los archivos con hash en el nombre no cambian nunca: cache larga
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/placeholders/*
+  Cache-Control: public, max-age=604800

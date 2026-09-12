@@ -1,0 +1,43 @@
+---
+import Base from '../../layouts/Base.astro';
+import NotaCard from '../../components/NotaCard.astro';
+import { CATEGORIAS } from '../../content.config';
+import { notasPublicadas, slugCategoria } from '../../lib/notas';
+
+export async function getStaticPaths() {
+  return CATEGORIAS.map((categoria) => ({
+    params: { slug: slugCategoria(categoria) },
+    props: { categoria },
+  }));
+}
+
+const { categoria } = Astro.props;
+const notas = (await notasPublicadas()).filter((n) => n.data.categorias.includes(categoria));
+---
+
+<Base titulo={categoria} descripcion={`Notas de la sección ${categoria} en Publius Group.`}>
+  <section class="contenedor pt-10 pb-14">
+    <div class="barra-seccion">
+      <div>
+        <p class="rotulo mb-1 text-tinta-3">Sección</p>
+        <h1 class="text-[clamp(1.6rem,3.4vw,2.2rem)] font-bold text-tinta">{categoria}</h1>
+      </div>
+      <p class="meta-linea">
+        {notas.length}
+        {notas.length === 1 ? 'nota' : 'notas'}
+      </p>
+    </div>
+
+    {
+      notas.length > 0 ? (
+        <div class="grid grid-cols-1 gap-3 pt-8 sm:grid-cols-2 lg:grid-cols-4">
+          {notas.map((nota) => (
+            <NotaCard nota={nota} />
+          ))}
+        </div>
+      ) : (
+        <p class="pt-8 text-tinta-2">Todavía no hay notas en esta sección.</p>
+      )
+    }
+  </section>
+</Base>

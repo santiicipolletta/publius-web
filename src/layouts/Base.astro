@@ -1,0 +1,74 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  titulo: string;
+  descripcion: string;
+  /* Para las notas: imagen que se muestra al compartir el link */
+  imagenSocial?: string;
+  /* 'article' en las notas, 'website' en el resto */
+  tipo?: 'website' | 'article';
+  /* En el home la cabecera muestra el logotipo grande y centrado */
+  portada?: boolean;
+}
+
+const {
+  titulo,
+  descripcion,
+  imagenSocial = '/og-publius.png',
+  tipo = 'website',
+  portada = false,
+} = Astro.props;
+
+const urlCanonica = new URL(Astro.url.pathname, Astro.site);
+const urlImagen = new URL(imagenSocial, Astro.site);
+const tituloCompleto = titulo === 'Publius Group'
+  ? 'Publius — Los medios de la nueva generación'
+  : `${titulo} — Publius Group`;
+---
+
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{tituloCompleto}</title>
+    <meta name="description" content={descripcion} />
+    <link rel="canonical" href={urlCanonica} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title="Publius Group" href="/rss.xml" />
+
+    <!-- Poppins: geométrica y moderna, la que más se acerca al logo.
+         El peso 300 es el "Group" del logotipo; el 800, los rótulos. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    />
+
+    <!-- Open Graph: cómo se ve el link al compartirlo -->
+    <meta property="og:type" content={tipo} />
+    <meta property="og:title" content={tituloCompleto} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:url" content={urlCanonica} />
+    <meta property="og:image" content={urlImagen} />
+    <meta property="og:site_name" content="Publius Group" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="theme-color" content="#091528" />
+  </head>
+
+  <body>
+    <a href="#contenido" class="saltar">Saltar al contenido</a>
+    <Header portada={portada} />
+    <main id="contenido">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

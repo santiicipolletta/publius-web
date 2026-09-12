@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import NotaCard from '../components/NotaCard.astro';
+import { notasPublicadas } from '../lib/notas';
+
+/* Si alguien llega acá desde un link roto, al menos que se vaya
+   leyendo algo: las tres notas más recientes. */
+const recientes = (await notasPublicadas()).slice(0, 3);
+---
+
+<Base
+  titulo="Página no encontrada"
+  descripcion="La página que buscabas no existe o cambió de dirección.">
+  <section class="contenedor pt-14 pb-10">
+    <p class="rotulo mb-3 text-tinta-3">Error 404</p>
+
+    <h1 class="mb-4 max-w-[24ch] text-[clamp(1.8rem,4.4vw,2.6rem)] font-bold text-tinta">
+      Esta página no existe.
+    </h1>
+
+    <p class="mb-8 max-w-[54ch] text-[1.05rem] leading-[1.65] text-tinta-2">
+      Puede que el link esté mal escrito, o que venga del sitio anterior y haya cambiado de
+      dirección. Las notas del archivo están todas acá, en <a
+        href="/notas"
+        class="underline underline-offset-[3px]">/notas</a
+      >.
+    </p>
+
+    <div class="flex flex-wrap gap-x-6 gap-y-2">
+      <a
+        href="/"
+        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]"
+        >Ir a la portada</a
+      >
+      <a
+        href="/notas"
+        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]"
+        >Ver todas las notas</a
+      >
+      <a
+        href="/autores"
+        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]"
+        >Buscar una firma</a
+      >
+      <a
+        href="/podcast"
+        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]"
+        >Escuchar el podcast</a
+      >
+    </div>
+  </section>
+
+  {
+    recientes.length > 0 && (
+      <section class="contenedor pb-14">
+        <div class="barra-seccion">
+          <h2 class="rotulo">Lo último, por si estás por acá</h2>
+        </div>
+        <div class="grid grid-cols-1 gap-3 pt-8 sm:grid-cols-2 lg:grid-cols-3">
+          {recientes.map((nota) => (
+            <NotaCard nota={nota} />
+          ))}
+        </div>
+      </section>
+    )
+  }
+</Base>

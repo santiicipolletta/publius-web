@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro';
+import CtaMultimedia from '../../components/CtaMultimedia.astro';
+import EpisodioFila from '../../components/EpisodioFila.astro';
+import { CICLOS, EPISODIOS, episodiosDe, minutosDe } from '../../lib/podcast';
+
+const totalEpisodios = EPISODIOS.length;
+const totalHoras = Math.round(CICLOS.reduce((s, c) => s + minutosDe(c.slug), 0) / 60);
+
+/* Una imagen de la marca por ciclo, para que se distingan de un vistazo */
+const PORTADAS: Record<string, string> = {
+  'primera-parada': '/placeholders/redes.svg',
+  'fuera-de-contexto': '/placeholders/debate.svg',
+};
+
+const ciclos = CICLOS.map((c) => {
+  const eps = episodiosDe(c.slug);
+  return {
+    ...c,
+    minutos: minutosDe(c.slug),
+    ultimos: eps.slice(0, 3),
+    desde: eps.length ? eps[eps.length - 1].fecha : null,
+    hasta: eps.length ? eps[0].fecha : null,
+  };
+});
+
+const anio = (f: string | null) => (f ? new Date(f).getUTCFullYear() : null);
+---
+
+<Base
+  titulo="Podcast"
+  descripcion={`Primera Parada y Fuera de Contexto: ${totalEpisodios} episodios de Publius Group, con el audio completo.`}>
+  <section class="contenedor pt-10 pb-14">
+    <div class="barra-seccion">
+      <h1 class="rotulo">Podcast</h1>
+      <p class="meta-linea">{totalEpisodios} episodios · {totalHoras} horas de audio</p>
+    </div>
+
+    <p class="max-w-[58ch] pt-6 text-tinta-2">
+      Los dos ciclos de audio de Publius. El archivo completo está acá, con el audio de cada
+      episodio: se puede escuchar sin salir del sitio.
+    </p>
+
+    <div class="mt-8 flex flex-col gap-3">
+      {
+        ciclos.map((ciclo) => (
+          <article class="grid border border-borde bg-papel md:grid-cols-[minmax(0,30fr)_minmax(0,70fr)]">
+            <img
+              src={PORTADAS[ciclo.slug] ?? '/placeholders/redes.svg'}
+              alt=""
+              width="1200"
+              height="800"
+              loading="lazy"
+              decoding="async"
+              class="aspect-3/2 w-full object-cover md:h-full"
+            />
+
+            <div class="flex min-w-0 flex-col p-7">
+              <p class="rotulo mb-2.5">{ciclo.formato}</p>
+
+              <h2 class="mb-3 text-[clamp(1.4rem,2.8vw,1.9rem)] font-bold text-tinta">
+                <a href={`/podcast/${ciclo.slug}`} class="no-underline hover:underline hover:decoration-navy hover:underline-offset-[4px]">
+                  {ciclo.nombre}
+                </a>
+              </h2>
+
+              <p class="mb-4 max-w-[56ch] text-[0.9375rem] leading-[1.65] text-tinta-2">
+                {ciclo.descripcion}
+              </p>
+
+              <p class="meta-linea mb-6">
+                {ciclo.episodios} episodios · {ciclo.minutos} minutos
+                {anio(ciclo.desde) && (
+                  <>
+                    <span aria-hidden="true"> · </span>
+                    {anio(ciclo.desde) === anio(ciclo.hasta)
+                      ? anio(ciclo.desde)
+                      : `${anio(ciclo.desde)}–${anio(ciclo.hasta)}`}
+                  </>
+                )}
+              </p>
+
+              {/* Los tres últimos, escuchables acá mismo */}
+              {ciclo.ultimos.length > 0 && (
+                <div class="mb-6">
+                  <p class="rotulo mb-1 text-tinta-3">Últimos episodios</p>
+                  <div>
+                    {ciclo.ultimos.map((ep) => (
+                      <EpisodioFila episodio={ep} />
+                    ))}
+                  </div>
+                  <p class="mt-3">
+                    <a
+                      href={`/podcast/${ciclo.slug}`}
+                      class="group text-[0.8125rem] font-semibold text-navy no-underline">
+                      Ver los {ciclo.episodios} episodios
+                      <span
+                        class="inline-block transition-transform duration-150 group-hover:translate-x-1"
+                        aria-hidden="true">
+                        &nbsp;&rarr;
+                      </span>
+                    </a>
+                  </p>
+                </div>
+              )}
+
+              <div class="mt-auto flex flex-col gap-2 sm:flex-row">
+                <div class="flex-1">
+                  <CtaMultimedia
+                    plataforma="spotify"
+                    href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+                    detalle={ciclo.nombre}
+                  />
+                </div>
+                <div class="flex-1">
+                  <CtaMultimedia
+                    plataforma="youtube"
+                    href="https://www.youtube.com/@publiusgroup"
+                    detalle={ciclo.nombre}
+                  />
+                </div>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <p class="mt-8 max-w-[62ch] text-[0.8125rem] text-tinta-3">
+      El listado se arma con el feed del programa, así que no hay que cargar los episodios a mano.
+      También está en <a
+        href="https://podcasts.apple.com/us/podcast/publius-group/id1553800644"
+        rel="noopener noreferrer"
+        target="_blank"
+        class="underline underline-offset-[3px]">Apple Podcasts</a
+      >.
+    </p>
+  </section>
+</Base>
