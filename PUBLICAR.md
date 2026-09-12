@@ -6,7 +6,7 @@
 |---|---|
 | En línea ahora | **https://publius-flax.vercel.app** |
 | Repositorio | `santiicipolletta/publius-web` (privado) |
-| Proyecto en Vercel | `publius`, cuenta `santiagocipolletta@gmail.com` |
+| Proyecto en Vercel | `publius`, en la cuenta del estudio |
 | Dominio a conectar | **publius.com.ar** |
 
 Lo que ya funciona, verificado sobre el sitio publicado: las 136 páginas, las
@@ -23,7 +23,7 @@ tiene ninguna herramienta para asociar uno que ya tenés a un proyecto.
 
 ### 1. Agregar el dominio en Vercel
 
-1. Entrá a [vercel.com](https://vercel.com) con la cuenta de Santiago
+1. Entrá a [vercel.com](https://vercel.com) con la cuenta donde está el proyecto
 2. Proyecto **publius** → **Settings** → **Domains**
 3. Escribí `publius.com.ar` y **Add**
 4. Agregá también `www.publius.com.ar` por separado
