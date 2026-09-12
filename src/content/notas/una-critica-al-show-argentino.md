@@ -10,7 +10,7 @@ fuenteOriginal: "https://web.archive.org/web/20220525191955/https://publius.com.
 
 > “La ciudadanía quiere estabilidad, compromiso y responsabilidad, no mas show.”
 
-Así es, esta es [<strong>la novela</strong>](/notas/media) que tiene a todo el país desvelado.
+Así es, esta es [<strong>la novela</strong>](/podcast) que tiene a todo el país desvelado.
 
 Primero [Wado de Pedro](https://www.pagina12.com.ar/368815-las-versiones-alrededor-de-la-supuesta-renuncia-de-wado-de-p), a este le siguió el ministro de justicia Martin Soria, y así sucesivamente, desde ambiente hasta el INADI y el PAMI, todos presentaron su renuncia. Un verdadero <strong>show</strong>, con todo lo que tiene que tener un buen espectáculo: un comienzo que deja a uno expectante, momentos de tensión, idas y vueltas, y para culminar un gran final (si se le puede llamar así).
 

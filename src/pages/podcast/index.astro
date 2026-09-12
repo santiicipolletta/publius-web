@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { ENLACES } from '../../lib/enlaces';
 import CtaMultimedia from '../../components/CtaMultimedia.astro';
 import EpisodioFila from '../../components/EpisodioFila.astro';
 import { CICLOS, EPISODIOS, episodiosDe, minutosDe } from '../../lib/podcast';
@@ -108,14 +109,14 @@ const anio = (f: string | null) => (f ? new Date(f).getUTCFullYear() : null);
                 <div class="flex-1">
                   <CtaMultimedia
                     plataforma="spotify"
-                    href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+                    href={ENLACES.spotify}
                     detalle={ciclo.nombre}
                   />
                 </div>
                 <div class="flex-1">
                   <CtaMultimedia
                     plataforma="youtube"
-                    href="https://www.youtube.com/@publiusgroup"
+                    href={ENLACES.youtube}
                     detalle={ciclo.nombre}
                   />
                 </div>
@@ -129,7 +130,7 @@ const anio = (f: string | null) => (f ? new Date(f).getUTCFullYear() : null);
     <p class="mt-8 max-w-[62ch] text-[0.8125rem] text-tinta-3">
       El listado se arma con el feed del programa, así que no hay que cargar los episodios a mano.
       También está en <a
-        href="https://podcasts.apple.com/us/podcast/publius-group/id1553800644"
+        href={ENLACES.applePodcasts}
         rel="noopener noreferrer"
         target="_blank"
         class="underline underline-offset-[3px]">Apple Podcasts</a

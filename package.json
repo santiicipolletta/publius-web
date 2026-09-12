@@ -17,7 +17,9 @@
     "astro": "astro",
     "placeholders": "node scripts/generar-placeholders.mjs",
     "podcast:feed": "node scripts/podcast/bajar-feed.mjs",
-    "redirecciones": "node scripts/generar-redirecciones.mjs"
+    "redirecciones": "node scripts/generar-redirecciones.mjs",
+    "enlaces": "node scripts/revisar-enlaces.mjs",
+    "prelanzamiento": "npm run build && npm run enlaces && npm run rescate:revisar"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

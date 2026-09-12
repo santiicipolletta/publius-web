@@ -1,5 +1,6 @@
 ---
 import { CATEGORIAS } from '../content.config';
+import { ENLACES } from '../lib/enlaces';
 import { slugCategoria } from '../lib/notas';
 
 interface Props {
@@ -111,7 +112,7 @@ const enlaces = [
       {/* Los dos enlaces multimedia llevan su punto de color: es la
           única señal de rojo y verde en toda la navegación. */}
       <a
-        href="https://www.youtube.com/@publiusgroup"
+        href={ENLACES.youtube}
         rel="noopener noreferrer"
         target="_blank"
         class="flex items-center gap-2 text-[0.8125rem] font-medium tracking-wide text-marca no-underline transition-colors hover:text-white">
@@ -120,7 +121,7 @@ const enlaces = [
         YouTube
       </a>
       <a
-        href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+        href={ENLACES.spotify}
         rel="noopener noreferrer"
         target="_blank"
         class="flex items-center gap-2 text-[0.8125rem] font-medium tracking-wide text-marca no-underline transition-colors hover:text-white">

@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { ENLACES } from '../lib/enlaces';
 import NotaCard from '../components/NotaCard.astro';
 import CtaMultimedia from '../components/CtaMultimedia.astro';
 import { getEntry } from 'astro:content';
@@ -102,12 +103,12 @@ const columnaConAutor = await Promise.all(
               <div class="flex flex-col gap-2">
                 <CtaMultimedia
                   plataforma="spotify"
-                  href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+                  href={ENLACES.spotify}
                   detalle={`Primera Parada · ${primeraParada?.episodios ?? 0} episodios`}
                 />
                 <CtaMultimedia
                   plataforma="youtube"
-                  href="https://www.youtube.com/@publiusgroup"
+                  href={ENLACES.youtube}
                   detalle={`Fuera de Contexto · ${fueraDeContexto?.episodios ?? 0} episodios`}
                 />
               </div>

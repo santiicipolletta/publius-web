@@ -1,4 +1,6 @@
 ---
+import { ENLACES } from '../lib/enlaces';
+
 const anio = new Date().getFullYear();
 
 const secciones = [
@@ -9,11 +11,8 @@ const secciones = [
 ];
 
 const redes = [
-  { texto: 'Instagram', href: 'https://www.instagram.com/publius_group/' },
-  {
-    texto: 'Apple Podcasts',
-    href: 'https://podcasts.apple.com/us/podcast/publius-group/id1553800644',
-  },
+  { texto: 'Instagram', href: ENLACES.instagram },
+  { texto: 'Apple Podcasts', href: ENLACES.applePodcasts },
 ];
 ---
 
@@ -58,7 +57,7 @@ const redes = [
           {/* Los enlaces multimedia llevan su punto de color */}
           <li>
             <a
-              href="https://www.youtube.com/@publiusgroup"
+              href={ENLACES.youtube}
               rel="noopener noreferrer"
               target="_blank"
               class="flex items-center gap-2.5 text-marca no-underline transition-colors hover:text-white">
@@ -70,7 +69,7 @@ const redes = [
           </li>
           <li>
             <a
-              href="https://open.spotify.com/show/1gNOJwPJcMdLGyjHVrJ0Kk"
+              href={ENLACES.spotify}
               rel="noopener noreferrer"
               target="_blank"
               class="flex items-center gap-2.5 text-marca no-underline transition-colors hover:text-white">

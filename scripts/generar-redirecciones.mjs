@@ -6,7 +6,7 @@
  * /notas/. Cualquier link viejo que alguien tenga guardado, citado en
  * un trabajo o archivado apuntaría a una página que no existe.
  *
- * Con esto, publiusgroup.com/chocobar-sera-justicia lleva a la nota, y
+ * Con esto, publius.com.ar/chocobar-sera-justicia lleva a la nota, y
  * lo mismo pasaría si algún día se recupera publius.com.ar y se apunta
  * a este sitio.
  *

@@ -165,8 +165,32 @@ function reescribirEnlace(href) {
   /* Un enlace a otra nota del sitio pasa a ser interno */
   const interno = url.match(/^https?:\/\/(?:www\.)?publius\.com\.ar\/([^/?#]+)\/?$/i);
   if (interno) {
-    const slug = interno[1];
+    const slug = interno[1].toLowerCase();
+
+    /* Las taxonomías del WordPress viejo no son notas */
     if (/^(category|tag|author|page)$/.test(slug)) return null;
+
+    /* Las páginas fijas tampoco: algunas tienen equivalente acá y
+       otras no existen más. Sin esto, un enlace a /media/ terminaba
+       apuntando a /notas/media, que no existe. */
+    const FIJAS = {
+      home: '/',
+      media: '/podcast',
+      spotify: '/podcast',
+      youtube: '/podcast',
+      opinion: '/categoria/opinion',
+      actualidad: '/categoria/actualidad',
+      investigacion: '/categoria/investigacion',
+      guerra: '/categoria/guerra',
+      shorts: '/categoria/shorts',
+      autores: '/autores',
+      /* Sin equivalente en el sitio nuevo: el enlace se cae y queda
+         sólo el texto. */
+      contacto: null,
+      eventos: null,
+    };
+    if (slug in FIJAS) return FIJAS[slug];
+
     return `/notas/${slug}`;
   }
 
