@@ -1,114 +1,87 @@
 # Publicar el sitio
 
-Dominio: **publius.com.ar** — el original, recuperado.
-Hosting: **Vercel**, en la cuenta `santiagocipolletta@gmail.com` (la que está
-conectada acá).
+**El sitio ya está publicado.** Falta un solo paso: apuntar el dominio.
 
-El reparto de tareas es este, y viene de una limitación concreta:
-
-| Tarea | Quién |
+| | |
 |---|---|
-| Crear el repositorio en GitHub y pushear | **Vos** |
-| Crear el proyecto en Vercel y vincularlo | Yo |
-| Desplegar | Yo |
-| Agregar el dominio en Vercel | Yo |
-| Delegar el dominio en NIC.ar | **Vos** |
+| En línea ahora | **https://publius-flax.vercel.app** |
+| Repositorio | `santiicipolletta/publius-web` (privado) |
+| Proyecto en Vercel | `publius`, cuenta `santiagocipolletta@gmail.com` |
+| Dominio a conectar | **publius.com.ar** |
 
-Lo de GitHub y lo de NIC.ar pasa por tus credenciales: no tengo —ni debería
-tener— forma de entrar a esas cuentas.
+Lo que ya funciona, verificado sobre el sitio publicado: las 136 páginas, las
+106 redirecciones del sitio viejo, las cabeceras de seguridad, la cache de los
+assets y el HTTPS.
 
 ---
 
-## Paso 0 — El control de prelanzamiento
+## Lo único que falta: el dominio
+
+Son dos mitades, y las dos pasan por paneles con tus credenciales. Yo no puedo
+hacerlas: el conector de Vercel sirve para comprar dominios nuevos, pero no
+tiene ninguna herramienta para asociar uno que ya tenés a un proyecto.
+
+### 1. Agregar el dominio en Vercel
+
+1. Entrá a [vercel.com](https://vercel.com) con la cuenta de Santiago
+2. Proyecto **publius** → **Settings** → **Domains**
+3. Escribí `publius.com.ar` y **Add**
+4. Agregá también `www.publius.com.ar` por separado
+
+Vercel te va a mostrar los registros DNS que espera. Según la documentación
+oficial son estos:
+
+| Registro | Nombre | Valor |
+|---|---|---|
+| `A` | `@` (la raíz) | `76.76.21.21` |
+| `CNAME` | `www` | `cname.vercel-dns-0.com` |
+
+**Usá los que muestre el panel**, no estos, por si cambiaron.
+
+### 2. Cargar el DNS en NIC.ar
+
+Entrá a [nic.ar](https://nic.ar) — se ingresa con **Mi Argentina** o clave
+fiscal de AFIP — y elegí `publius.com.ar`. Ahí tenés dos caminos:
+
+**Si NIC.ar te deja editar registros** (el "Servicio de DNS" propio de NIC.ar):
+cargá el registro `A` y el `CNAME` de la tabla de arriba. Es el camino más
+simple y no cambia nada más.
+
+**Si sólo te deja delegar a servidores externos:** ese panel pide
+*nameservers*, no registros. En ese caso, en Vercel elegí la opción de usar
+**Vercel DNS** para el dominio: te va a dar dos nameservers, y esos son los que
+cargás como delegación en NIC.ar.
+
+> Si NIC.ar avisa que los servidores "no responden para el dominio", esperá
+> unos minutos y reintentá: tarda en verificarlos.
+
+### Qué pasa después
+
+Propaga en **entre 15 minutos y 48 horas**; los `.com.ar` suelen tardar más que
+un `.com`. El certificado HTTPS se genera solo cuando Vercel detecta el
+dominio. Mientras esperás, el sitio sigue andando en la URL de `vercel.app`:
+no hay ventana de caída.
+
+```bash
+nslookup publius.com.ar
+```
+
+Cuando devuelva `76.76.21.21` —o los nameservers de Vercel, según el camino que
+hayas usado— está listo.
+
+---
+
+## El control de prelanzamiento
+
+Antes de cada push:
 
 ```bash
 npm run prelanzamiento
 ```
 
 Compila, revisa que ningún enlace interno esté roto y controla la calidad de
-las notas. **Si algo falla, no publiques: leé el error.** Hoy pasa limpio: 136
-páginas y 3117 enlaces internos sin uno roto.
-
----
-
-## Paso 1 — El repositorio en GitHub (tuyo)
-
-El repositorio local ya está armado, con tres commits. Falta el remoto.
-
-1. Entrá a [github.com/new](https://github.com/new)
-2. **Repository name:** `publius-web`
-3. Público o privado, cualquiera sirve. Privado es razonable: el sitio va a ser
-   público igual, pero el código no tiene por qué serlo.
-4. **No marques** "Add a README", "Add .gitignore" ni "Choose a license": ya
-   están en el repo y chocarían.
-5. Creá el repositorio y después, en esta carpeta:
-
-```bash
-git remote add origin https://github.com/TU-USUARIO/publius-web.git
-git push -u origin main
-```
-
-Cambiá `TU-USUARIO` por el tuyo. Si te pide contraseña, GitHub ya no las
-acepta: instalá [GitHub CLI](https://cli.github.com) y corré `gh auth login`
-una vez, o generá un *personal access token*.
-
-**Cuando termines, pasame `TU-USUARIO/publius-web`** y sigo yo.
-
-> Si conectás el MCP de GitHub, avisame y verifico si me da acceso: en ese caso
-> el repositorio lo puedo crear y pushear yo, y este paso desaparece.
-
----
-
-## Paso 2 — Vercel (lo hago yo)
-
-Con el repo existiendo, yo ejecuto la vinculación y el deploy. Vas a recibir
-una URL de `vercel.app` para revisar.
-
-**Revisá esa URL enterita antes de tocar el DNS.** Portada, una nota, el
-buscador de autores y darle play a un episodio. Encontrar un problema ahí es
-gratis; encontrarlo con el dominio ya apuntando, no.
-
----
-
-## Paso 3 — Apuntar publius.com.ar (tuyo)
-
-Cuando confirmes que la URL de Vercel está bien, yo agrego el dominio al
-proyecto. Vercel te va a pedir una de dos cosas; con un `.com.ar` en NIC.ar,
-la que sirve es la **delegación a los nameservers de Vercel**.
-
-1. Yo te paso los dos nameservers exactos que muestre Vercel. Tienen esta
-   forma:
-
-```
-ns1.vercel-dns.com
-ns2.vercel-dns.com
-```
-
-2. Entrá a [nic.ar](https://nic.ar) con tu usuario (se ingresa con
-   **Mi Argentina** o clave fiscal de AFIP)
-3. Andá a tus dominios y elegí `publius.com.ar`
-4. Buscá la sección de **delegación** — según la versión del panel puede
-   llamarse "Delegar dominio", "Delegaciones" o "Servidores DNS"
-5. Reemplazá los servidores cargados por los dos de Vercel
-6. Guardá
-
-> Si NIC.ar te avisa que los servidores "no responden para el dominio",
-> esperá unos minutos y reintentá: tarda en verificarlos.
-
-### Qué pasa después
-
-La delegación tarda **entre 15 minutos y 48 horas** en propagarse; los
-`.com.ar` suelen tardar más que un `.com`. El certificado HTTPS se genera solo
-cuando Vercel detecta el dominio.
-
-Mientras esperás, el sitio ya funciona en la URL de `vercel.app`. No se rompe
-nada durante la transición.
-
-```bash
-nslookup -type=NS publius.com.ar
-```
-
-Cuando devuelva los nameservers de Vercel, está listo.
+las notas. **Si falla, no pushees: leé el error.** Hoy pasa limpio: 136 páginas
+y 3117 enlaces internos sin uno roto.
 
 ---
 
