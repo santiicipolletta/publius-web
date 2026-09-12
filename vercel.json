@@ -1,0 +1,576 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/author/:resto*",
+      "destination": "/autores/:resto*",
+      "permanent": true
+    },
+    {
+      "source": "/category/:resto*",
+      "destination": "/categoria/:resto*",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:resto*",
+      "destination": "/notas",
+      "permanent": true
+    },
+    {
+      "source": "/page/:resto*",
+      "destination": "/notas",
+      "permanent": true
+    },
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/opinion",
+      "destination": "/categoria/opinion",
+      "permanent": true
+    },
+    {
+      "source": "/actualidad",
+      "destination": "/categoria/actualidad",
+      "permanent": true
+    },
+    {
+      "source": "/investigacion",
+      "destination": "/categoria/investigacion",
+      "permanent": true
+    },
+    {
+      "source": "/shorts",
+      "destination": "/categoria/shorts",
+      "permanent": true
+    },
+    {
+      "source": "/spotify",
+      "destination": "/podcast",
+      "permanent": true
+    },
+    {
+      "source": "/media",
+      "destination": "/podcast",
+      "permanent": true
+    },
+    {
+      "source": "/autores/invitado",
+      "destination": "/autores",
+      "permanent": true
+    },
+    {
+      "source": "/30-anos-del-mercosur-congelamiento-o-mision-reivindicar",
+      "destination": "/notas/30-anos-del-mercosur-congelamiento-o-mision-reivindicar",
+      "permanent": true
+    },
+    {
+      "source": "/al-rojo-vivo",
+      "destination": "/notas/al-rojo-vivo",
+      "permanent": true
+    },
+    {
+      "source": "/alimentacion",
+      "destination": "/notas/alimentacion",
+      "permanent": true
+    },
+    {
+      "source": "/analisis-de-la-evolucion-del-estado-moderno-y-caracterizacion-de-sus-distintas-etapas",
+      "destination": "/notas/analisis-de-la-evolucion-del-estado-moderno-y-caracterizacion-de-sus-distintas-etapas",
+      "permanent": true
+    },
+    {
+      "source": "/ano-electoral",
+      "destination": "/notas/ano-electoral",
+      "permanent": true
+    },
+    {
+      "source": "/aquella-noche-del-19-de-diciembre-del-2001",
+      "destination": "/notas/aquella-noche-del-19-de-diciembre-del-2001",
+      "permanent": true
+    },
+    {
+      "source": "/barajar-y-dar-de-nuevo",
+      "destination": "/notas/barajar-y-dar-de-nuevo",
+      "permanent": true
+    },
+    {
+      "source": "/bastan-las-buenas-intenciones",
+      "destination": "/notas/bastan-las-buenas-intenciones",
+      "permanent": true
+    },
+    {
+      "source": "/carta-a-los-futuros-abogados",
+      "destination": "/notas/carta-a-los-futuros-abogados",
+      "permanent": true
+    },
+    {
+      "source": "/causa-vialidad-una-mas",
+      "destination": "/notas/causa-vialidad-una-mas",
+      "permanent": true
+    },
+    {
+      "source": "/chocobar-sera-justicia",
+      "destination": "/notas/chocobar-sera-justicia",
+      "permanent": true
+    },
+    {
+      "source": "/como-funciona-la-salud-en-el-mundo",
+      "destination": "/notas/como-funciona-la-salud-en-el-mundo",
+      "permanent": true
+    },
+    {
+      "source": "/como-sostener-la-militancia",
+      "destination": "/notas/como-sostener-la-militancia",
+      "permanent": true
+    },
+    {
+      "source": "/cuestionamientos-para-con-la-normalidad",
+      "destination": "/notas/cuestionamientos-para-con-la-normalidad",
+      "permanent": true
+    },
+    {
+      "source": "/data-privacy-lo-que-el-gobierno-sabe-de-vos",
+      "destination": "/notas/data-privacy-lo-que-el-gobierno-sabe-de-vos",
+      "permanent": true
+    },
+    {
+      "source": "/de-emergentes-a-standalone",
+      "destination": "/notas/de-emergentes-a-standalone",
+      "permanent": true
+    },
+    {
+      "source": "/debate-universitario-en-cordoba",
+      "destination": "/notas/debate-universitario-en-cordoba",
+      "permanent": true
+    },
+    {
+      "source": "/el-analgesico-la-independencia",
+      "destination": "/notas/el-analgesico-la-independencia",
+      "permanent": true
+    },
+    {
+      "source": "/el-democratico-mensaje-de-no-votar",
+      "destination": "/notas/el-democratico-mensaje-de-no-votar",
+      "permanent": true
+    },
+    {
+      "source": "/el-derecho-al-debido-proceso-en-la-convencion-americana-de-derechos-humanos",
+      "destination": "/notas/el-derecho-al-debido-proceso-en-la-convencion-americana-de-derechos-humanos",
+      "permanent": true
+    },
+    {
+      "source": "/el-fin-de-chiamerica",
+      "destination": "/notas/el-fin-de-chiamerica",
+      "permanent": true
+    },
+    {
+      "source": "/el-futuro-que-nos-espera",
+      "destination": "/notas/el-futuro-que-nos-espera",
+      "permanent": true
+    },
+    {
+      "source": "/el-humor-tiene-limites",
+      "destination": "/notas/el-humor-tiene-limites",
+      "permanent": true
+    },
+    {
+      "source": "/el-primer-efecto-post-pandemia-la-crisis-de-la-television",
+      "destination": "/notas/el-primer-efecto-post-pandemia-la-crisis-de-la-television",
+      "permanent": true
+    },
+    {
+      "source": "/el-proceso-de-latinoamericanizacion-de-la-republica-argentina",
+      "destination": "/notas/el-proceso-de-latinoamericanizacion-de-la-republica-argentina",
+      "permanent": true
+    },
+    {
+      "source": "/el-rey-de-la-tele-se-pone-de-rodillas",
+      "destination": "/notas/el-rey-de-la-tele-se-pone-de-rodillas",
+      "permanent": true
+    },
+    {
+      "source": "/el-sahel-la-region-en-estado-critico",
+      "destination": "/notas/el-sahel-la-region-en-estado-critico",
+      "permanent": true
+    },
+    {
+      "source": "/en-casa-de-herrero",
+      "destination": "/notas/en-casa-de-herrero",
+      "permanent": true
+    },
+    {
+      "source": "/encerradores-y-libertinos",
+      "destination": "/notas/encerradores-y-libertinos",
+      "permanent": true
+    },
+    {
+      "source": "/entre-la-libertad-y-la-pandemia",
+      "destination": "/notas/entre-la-libertad-y-la-pandemia",
+      "permanent": true
+    },
+    {
+      "source": "/es-hora-de-cambiar-el-sistema-impositivo",
+      "destination": "/notas/es-hora-de-cambiar-el-sistema-impositivo",
+      "permanent": true
+    },
+    {
+      "source": "/estatizar-gasto-o-inversion",
+      "destination": "/notas/estatizar-gasto-o-inversion",
+      "permanent": true
+    },
+    {
+      "source": "/fin-del-bear-market-argentino-un-nuevo-inicio",
+      "destination": "/notas/fin-del-bear-market-argentino-un-nuevo-inicio",
+      "permanent": true
+    },
+    {
+      "source": "/formosa-democracia-y-republica",
+      "destination": "/notas/formosa-democracia-y-republica",
+      "permanent": true
+    },
+    {
+      "source": "/geopolitica-de-las-vacunas-que-pasa-con-latinoamerica",
+      "destination": "/notas/geopolitica-de-las-vacunas-que-pasa-con-latinoamerica",
+      "permanent": true
+    },
+    {
+      "source": "/hasta-donde-llega-la-constitucion",
+      "destination": "/notas/hasta-donde-llega-la-constitucion",
+      "permanent": true
+    },
+    {
+      "source": "/historia-de-un-25-de-mayo-de-1810",
+      "destination": "/notas/historia-de-un-25-de-mayo-de-1810",
+      "permanent": true
+    },
+    {
+      "source": "/incoherentes-el-problema-de-la-ley-de-etiquetas",
+      "destination": "/notas/incoherentes-el-problema-de-la-ley-de-etiquetas",
+      "permanent": true
+    },
+    {
+      "source": "/ingenieria-genetica-mito-o-realidad",
+      "destination": "/notas/ingenieria-genetica-mito-o-realidad",
+      "permanent": true
+    },
+    {
+      "source": "/ingreso-basico-universal-descentralizado",
+      "destination": "/notas/ingreso-basico-universal-descentralizado",
+      "permanent": true
+    },
+    {
+      "source": "/juicio-politico-a-la-corte",
+      "destination": "/notas/juicio-politico-a-la-corte",
+      "permanent": true
+    },
+    {
+      "source": "/la-apropiacion-de-lo-publico",
+      "destination": "/notas/la-apropiacion-de-lo-publico",
+      "permanent": true
+    },
+    {
+      "source": "/la-cara-de-los-afectados",
+      "destination": "/notas/la-cara-de-los-afectados",
+      "permanent": true
+    },
+    {
+      "source": "/la-destruccion-de-la-salud-mental",
+      "destination": "/notas/la-destruccion-de-la-salud-mental",
+      "permanent": true
+    },
+    {
+      "source": "/la-escuela-y-la-profesion",
+      "destination": "/notas/la-escuela-y-la-profesion",
+      "permanent": true
+    },
+    {
+      "source": "/la-etica-protestante-y-el-miedo",
+      "destination": "/notas/la-etica-protestante-y-el-miedo",
+      "permanent": true
+    },
+    {
+      "source": "/la-importancia-de-la-libertad-cultural",
+      "destination": "/notas/la-importancia-de-la-libertad-cultural",
+      "permanent": true
+    },
+    {
+      "source": "/la-independencia-que-nunca-tuvimos",
+      "destination": "/notas/la-independencia-que-nunca-tuvimos",
+      "permanent": true
+    },
+    {
+      "source": "/la-inteligencia-artificial-y-el-futuro-de-las-empresas-oportunidades-y-desafios",
+      "destination": "/notas/la-inteligencia-artificial-y-el-futuro-de-las-empresas-oportunidades-y-desafios",
+      "permanent": true
+    },
+    {
+      "source": "/la-juventud-y-la-politica",
+      "destination": "/notas/la-juventud-y-la-politica",
+      "permanent": true
+    },
+    {
+      "source": "/la-necesidad-del-derecho-a-la-portacion-de-armas-de-fuego",
+      "destination": "/notas/la-necesidad-del-derecho-a-la-portacion-de-armas-de-fuego",
+      "permanent": true
+    },
+    {
+      "source": "/la-novela-de-las-vacunas",
+      "destination": "/notas/la-novela-de-las-vacunas",
+      "permanent": true
+    },
+    {
+      "source": "/la-paradoja-de-la-democracia-argentina",
+      "destination": "/notas/la-paradoja-de-la-democracia-argentina",
+      "permanent": true
+    },
+    {
+      "source": "/la-pera-y-el-fiambre",
+      "destination": "/notas/la-pera-y-el-fiambre",
+      "permanent": true
+    },
+    {
+      "source": "/la-regulacion-del-derecho-a-peticionar-a-las-autoridades-mandato-constitucional-para-asegurar-el-ejercicio-de-los-demas-derechos-fundamentales",
+      "destination": "/notas/la-regulacion-del-derecho-a-peticionar-a-las-autoridades-mandato-constitucional-para-asegurar-el-ejercicio-de-los-demas-derechos-fundamentales",
+      "permanent": true
+    },
+    {
+      "source": "/la-universidad-como-vivencia-cultural",
+      "destination": "/notas/la-universidad-como-vivencia-cultural",
+      "permanent": true
+    },
+    {
+      "source": "/la-verdad-historica",
+      "destination": "/notas/la-verdad-historica",
+      "permanent": true
+    },
+    {
+      "source": "/la-vicepresidencia-un-cargo-innecesario",
+      "destination": "/notas/la-vicepresidencia-un-cargo-innecesario",
+      "permanent": true
+    },
+    {
+      "source": "/las-dos-caras-de-las-migraciones-latinoamericanos-asiaticos-y-africanos-hacia-europa",
+      "destination": "/notas/las-dos-caras-de-las-migraciones-latinoamericanos-asiaticos-y-africanos-hacia-europa",
+      "permanent": true
+    },
+    {
+      "source": "/las-dos-coreas-cuales-son-los-eventos-fundamentales-de-su-pasado-por-que-hay-dos-coreas-por-que-se-separaron-habra-paz-en-la-region",
+      "destination": "/notas/las-dos-coreas-cuales-son-los-eventos-fundamentales-de-su-pasado-por-que-hay-dos-coreas-por-que-se-separaron-habra-paz-en-la-region",
+      "permanent": true
+    },
+    {
+      "source": "/las-otras-mujeres",
+      "destination": "/notas/las-otras-mujeres",
+      "permanent": true
+    },
+    {
+      "source": "/legitima-defensa",
+      "destination": "/notas/legitima-defensa",
+      "permanent": true
+    },
+    {
+      "source": "/lo-politicamente-correcto",
+      "destination": "/notas/lo-politicamente-correcto",
+      "permanent": true
+    },
+    {
+      "source": "/los-balances-necesarios-en-un-mundo-conectado",
+      "destination": "/notas/los-balances-necesarios-en-un-mundo-conectado",
+      "permanent": true
+    },
+    {
+      "source": "/los-no-personas-y-lucha-por-los-derechos-civiles",
+      "destination": "/notas/los-no-personas-y-lucha-por-los-derechos-civiles",
+      "permanent": true
+    },
+    {
+      "source": "/mejor-tarde-que-nunca",
+      "destination": "/notas/mejor-tarde-que-nunca",
+      "permanent": true
+    },
+    {
+      "source": "/mendoexist",
+      "destination": "/notas/mendoexist",
+      "permanent": true
+    },
+    {
+      "source": "/mendoza-corte-suprema-y-un-fallo-contra-la-7722",
+      "destination": "/notas/mendoza-corte-suprema-y-un-fallo-contra-la-7722",
+      "permanent": true
+    },
+    {
+      "source": "/neosocialismo-la-contracara-del-llamado-neoliberalismo",
+      "destination": "/notas/neosocialismo-la-contracara-del-llamado-neoliberalismo",
+      "permanent": true
+    },
+    {
+      "source": "/nodio-y-su-campana-contra-el-odio",
+      "destination": "/notas/nodio-y-su-campana-contra-el-odio",
+      "permanent": true
+    },
+    {
+      "source": "/nuevas-restricciones",
+      "destination": "/notas/nuevas-restricciones",
+      "permanent": true
+    },
+    {
+      "source": "/objetivo-vacunas",
+      "destination": "/notas/objetivo-vacunas",
+      "permanent": true
+    },
+    {
+      "source": "/otra-vez-sopa-digo-lluvia",
+      "destination": "/notas/otra-vez-sopa-digo-lluvia",
+      "permanent": true
+    },
+    {
+      "source": "/otro-2-de-abril-una-mirada-a-las-islas-malvinas",
+      "destination": "/notas/otro-2-de-abril-una-mirada-a-las-islas-malvinas",
+      "permanent": true
+    },
+    {
+      "source": "/panorama-politico",
+      "destination": "/notas/panorama-politico",
+      "permanent": true
+    },
+    {
+      "source": "/partidos-en-dos-24-de-marzo-1976",
+      "destination": "/notas/partidos-en-dos-24-de-marzo-1976",
+      "permanent": true
+    },
+    {
+      "source": "/practicas-juridicas-activistas-caracterizacion-y-analisis-de-los-diversos-modos-de-usar-el-derecho",
+      "destination": "/notas/practicas-juridicas-activistas-caracterizacion-y-analisis-de-los-diversos-modos-de-usar-el-derecho",
+      "permanent": true
+    },
+    {
+      "source": "/primer-gran-paso",
+      "destination": "/notas/primer-gran-paso",
+      "permanent": true
+    },
+    {
+      "source": "/que-es-el-fenomeno-milei",
+      "destination": "/notas/que-es-el-fenomeno-milei",
+      "permanent": true
+    },
+    {
+      "source": "/que-esta-pasando-en-cuba",
+      "destination": "/notas/que-esta-pasando-en-cuba",
+      "permanent": true
+    },
+    {
+      "source": "/que-esta-pasando-soscolombia",
+      "destination": "/notas/que-esta-pasando-soscolombia",
+      "permanent": true
+    },
+    {
+      "source": "/recuerdo-al-general-martin-miguel-de-guemes",
+      "destination": "/notas/recuerdo-al-general-martin-miguel-de-guemes",
+      "permanent": true
+    },
+    {
+      "source": "/recursos-factores-que-afectan-las-relaciones-entre-rusia-y-la-union-europea",
+      "destination": "/notas/recursos-factores-que-afectan-las-relaciones-entre-rusia-y-la-union-europea",
+      "permanent": true
+    },
+    {
+      "source": "/senora-es-una-nina",
+      "destination": "/notas/senora-es-una-nina",
+      "permanent": true
+    },
+    {
+      "source": "/ser-estudiante-hoy",
+      "destination": "/notas/ser-estudiante-hoy",
+      "permanent": true
+    },
+    {
+      "source": "/ser-y-no-ser-al-mismo-tiempo",
+      "destination": "/notas/ser-y-no-ser-al-mismo-tiempo",
+      "permanent": true
+    },
+    {
+      "source": "/si-arrancamos-asi",
+      "destination": "/notas/si-arrancamos-asi",
+      "permanent": true
+    },
+    {
+      "source": "/silencio",
+      "destination": "/notas/silencio",
+      "permanent": true
+    },
+    {
+      "source": "/simpatizantes-de-jair-bolsonaro-tomaron-el-congreso-el-palacio-de-justicia-y-la-corte-suprema",
+      "destination": "/notas/simpatizantes-de-jair-bolsonaro-tomaron-el-congreso-el-palacio-de-justicia-y-la-corte-suprema",
+      "permanent": true
+    },
+    {
+      "source": "/sin-conexion-judicial",
+      "destination": "/notas/sin-conexion-judicial",
+      "permanent": true
+    },
+    {
+      "source": "/solidaridad-suenos-que-se-cumplen",
+      "destination": "/notas/solidaridad-suenos-que-se-cumplen",
+      "permanent": true
+    },
+    {
+      "source": "/superministro",
+      "destination": "/notas/superministro",
+      "permanent": true
+    },
+    {
+      "source": "/un-sobreseimiento-excepcional",
+      "destination": "/notas/un-sobreseimiento-excepcional",
+      "permanent": true
+    },
+    {
+      "source": "/una-critica-al-show-argentino",
+      "destination": "/notas/una-critica-al-show-argentino",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/_astro/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/placeholders/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=604800"
+        }
+      ]
+    }
+  ]
+}

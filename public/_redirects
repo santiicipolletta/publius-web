@@ -1,23 +1,23 @@
 # Generado por scripts/generar-redirecciones.mjs — no editar a mano.
 #
-# El sitio anterior era WordPress y tenía las notas en la raíz.
-# Estas reglas hacen que los links viejos sigan funcionando.
+# Formato de Cloudflare Pages y Netlify. El sitio está en Vercel, que
+# usa vercel.json: este archivo queda para no depender de un hosting.
 
 # --- Taxonomías del WordPress viejo ---
-/author/*      /autores/:splat      301
-/category/*    /categoria/:splat    301
-/tag/*         /notas               301
-/page/*        /notas               301
+/author/*                                      /autores/:splat                                      301
+/category/*                                    /categoria/:splat                                    301
+/tag/*                                         /notas                                               301
+/page/*                                        /notas                                               301
 
 # --- Páginas fijas que cambiaron de nombre ---
-/home          /                    301
-/opinion       /categoria/opinion   301
-/actualidad    /categoria/actualidad 301
-/investigacion /categoria/investigacion 301
-/shorts        /categoria/shorts    301
-/spotify       /podcast             301
-/media         /podcast             301
-/autores/invitado /autores          301
+/home                                          /                                                    301
+/opinion                                       /categoria/opinion                                   301
+/actualidad                                    /categoria/actualidad                                301
+/investigacion                                 /categoria/investigacion                             301
+/shorts                                        /categoria/shorts                                    301
+/spotify                                       /podcast                                             301
+/media                                         /podcast                                             301
+/autores/invitado                              /autores                                             301
 
 # --- Las 94 notas: de la raíz a /notas/ ---
 /30-anos-del-mercosur-congelamiento-o-mision-reivindicar /notas/30-anos-del-mercosur-congelamiento-o-mision-reivindicar 301
