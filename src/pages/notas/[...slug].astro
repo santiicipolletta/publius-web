@@ -38,7 +38,10 @@ const masDelAutor = (await notasDe(autor.id)).filter((n) => n.id !== nota.id).sl
   descripcion={extracto}
   tipo="article"
   imagenSocial={nota.data.imagen}>
-  <article>
+  {/* El área de lectura tiene su propio lienzo: en modo claro coincide
+      con el fondo general, y en oscuro queda un escalón más clara que
+      la página para separar el texto largo del resto. */}
+  <article class="cambia-con-el-tema bg-lectura">
     {/* --- Encabezado sobre papel blanco --- */}
     <header class="border-b border-borde bg-papel">
       <div class="contenedor max-w-[860px] pt-12 pb-9">

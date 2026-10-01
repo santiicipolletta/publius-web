@@ -34,6 +34,20 @@ const tituloCompleto = titulo === 'Publius Group'
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    {/* Esto corre antes de que el navegador pinte nada. Sin esto, quien
+        eligió el tema oscuro vería un destello blanco en cada página
+        mientras carga el resto. Va en línea y sincrónico a propósito. */}
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('publius-tema');
+        if (t === 'dark' || t === 'light') {
+          document.documentElement.setAttribute('data-theme', t);
+        }
+      } catch (e) {
+        /* navegación privada: queda la preferencia del sistema */
+      }
+    </script>
     <title>{tituloCompleto}</title>
     <meta name="description" content={descripcion} />
     <link rel="canonical" href={urlCanonica} />

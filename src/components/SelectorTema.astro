@@ -1,0 +1,114 @@
+---
+/* Selector de tema con tres estados: claro, oscuro y el del sistema.
+   El tercero no es relleno: si alguien tiene el teléfono en modo noche
+   automático, el sitio lo sigue sin que tenga que acordarse. */
+
+const OPCIONES = [
+  {
+    valor: 'light',
+    titulo: 'Tema claro',
+    /* Sol */
+    icono:
+      'M12 17.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11ZM12 1.5v2.2M12 20.3v2.2M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M1.5 12h2.2M20.3 12h2.2M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6',
+  },
+  {
+    valor: 'dark',
+    titulo: 'Tema oscuro',
+    /* Luna */
+    icono: 'M20.5 14.3A8.8 8.8 0 1 1 9.7 3.5a7 7 0 0 0 10.8 10.8Z',
+  },
+  {
+    valor: 'system',
+    titulo: 'Según el sistema',
+    /* Monitor */
+    icono: 'M3.5 4.5h17v11h-17zM8.5 19.5h7M12 15.5v4',
+  },
+];
+---
+
+<div
+  class="flex items-center gap-0.5 rounded-full border border-navy-line p-0.5"
+  role="group"
+  aria-label="Tema de la página">
+  {
+    OPCIONES.map((o) => (
+      <button
+        type="button"
+        data-tema={o.valor}
+        title={o.titulo}
+        aria-label={o.titulo}
+        aria-pressed="false"
+        class="boton-tema flex size-7 items-center justify-center rounded-full text-marca transition-colors hover:text-white aria-pressed:bg-navy-soft aria-pressed:text-white">
+        <svg
+          viewBox="0 0 24 24"
+          class="size-3.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true">
+          <path d={o.icono} />
+        </svg>
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  const CLAVE = 'publius-tema';
+
+  type Tema = 'light' | 'dark' | 'system';
+
+  function aplicar(tema: Tema) {
+    const raiz = document.documentElement;
+    if (tema === 'system') raiz.removeAttribute('data-theme');
+    else raiz.setAttribute('data-theme', tema);
+
+    /* La barra del navegador en el móvil acompaña al tema */
+    const oscuro =
+      tema === 'dark' ||
+      (tema === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute('content', oscuro ? '#0b0f19' : '#091528');
+
+    for (const b of document.querySelectorAll<HTMLButtonElement>('.boton-tema')) {
+      b.setAttribute('aria-pressed', String(b.dataset.tema === tema));
+    }
+  }
+
+  function leer(): Tema {
+    try {
+      const v = localStorage.getItem(CLAVE);
+      if (v === 'light' || v === 'dark' || v === 'system') return v;
+    } catch {
+      /* navegación privada o cookies bloqueadas: se usa el sistema */
+    }
+    return 'system';
+  }
+
+  /* Estado inicial de los botones. El atributo del <html> ya lo puso
+     el script que corre en el <head>, antes del primer pintado. */
+  aplicar(leer());
+
+  for (const boton of document.querySelectorAll<HTMLButtonElement>('.boton-tema')) {
+    boton.addEventListener('click', () => {
+      const tema = (boton.dataset.tema ?? 'system') as Tema;
+      try {
+        localStorage.setItem(CLAVE, tema);
+      } catch {
+        /* no se puede guardar: el cambio vale para esta visita */
+      }
+      aplicar(tema);
+    });
+  }
+
+  /* Si está en "según el sistema" y el sistema cambia —por ejemplo al
+     anochecer—, el sitio cambia con él sin recargar. */
+  window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', () => {
+      if (leer() === 'system') aplicar('system');
+    });
+</script>

@@ -69,7 +69,7 @@ const tramos = porTramos ? porMes(episodios) : [];
               {/* El mes más reciente arranca abierto; el resto, plegado,
                   para que la página se pueda recorrer de un vistazo. */}
               <details class="mt-1" open={i === 0}>
-                <summary class="cursor-pointer list-none py-3 text-[0.8125rem] font-semibold text-navy marker:content-none hover:underline hover:underline-offset-[3px]">
+                <summary class="cursor-pointer list-none py-3 text-[0.8125rem] font-semibold text-acento marker:content-none hover:underline hover:underline-offset-[3px]">
                   Ver los episodios de {tramo.etiqueta.toLowerCase()}
                 </summary>
                 <div class="border-t border-borde">
@@ -100,7 +100,7 @@ const tramos = porTramos ? porMes(episodios) : [];
     <p class="mt-10">
       <a
         href="/podcast"
-        class="text-[0.8125rem] font-semibold text-navy no-underline hover:underline hover:underline-offset-[3px]">
+        class="text-[0.8125rem] font-semibold text-acento no-underline hover:underline hover:underline-offset-[3px]">
         &larr;&nbsp;Volver al podcast
       </a>
     </p>

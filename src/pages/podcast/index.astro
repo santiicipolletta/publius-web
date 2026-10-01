@@ -60,7 +60,7 @@ const anio = (f: string | null) => (f ? new Date(f).getUTCFullYear() : null);
               <p class="rotulo mb-2.5">{ciclo.formato}</p>
 
               <h2 class="mb-3 text-[clamp(1.4rem,2.8vw,1.9rem)] font-bold text-tinta">
-                <a href={`/podcast/${ciclo.slug}`} class="no-underline hover:underline hover:decoration-navy hover:underline-offset-[4px]">
+                <a href={`/podcast/${ciclo.slug}`} class="no-underline hover:underline hover:decoration-acento hover:underline-offset-[4px]">
                   {ciclo.nombre}
                 </a>
               </h2>
@@ -93,7 +93,7 @@ const anio = (f: string | null) => (f ? new Date(f).getUTCFullYear() : null);
                   <p class="mt-3">
                     <a
                       href={`/podcast/${ciclo.slug}`}
-                      class="group text-[0.8125rem] font-semibold text-navy no-underline">
+                      class="group text-[0.8125rem] font-semibold text-acento no-underline">
                       Ver los {ciclo.episodios} episodios
                       <span
                         class="inline-block transition-transform duration-150 group-hover:translate-x-1"

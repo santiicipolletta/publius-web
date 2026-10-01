@@ -51,7 +51,7 @@ const normalizar = (t: string) =>
         página. No hace pedidos al servidor y funciona al instante. */}
     <div class="mt-8 max-w-md">
       <label for="buscar" class="rotulo mb-2 block text-tinta-3">Buscar una firma</label>
-      <div class="flex items-center gap-2 border border-borde bg-papel px-3 py-2.5 focus-within:border-navy">
+      <div class="flex items-center gap-2 border border-borde bg-papel px-3 py-2.5 focus-within:border-acento">
         <svg viewBox="0 0 20 20" class="size-4 shrink-0 text-tinta-3" aria-hidden="true">
           <circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.8"
           ></circle>
@@ -77,8 +77,8 @@ const normalizar = (t: string) =>
           <li data-busqueda={normalizar(`${autor.data.nombre} ${autor.data.temas.join(' ')}`)}>
             <a
               href={`/autores/${autor.id}`}
-              class="group flex h-full flex-col border border-borde bg-papel p-6 no-underline transition-colors duration-150 hover:border-navy">
-              <h2 class="mb-1 text-[1.05rem] leading-tight font-semibold text-tinta group-hover:underline group-hover:decoration-navy group-hover:underline-offset-[3px]">
+              class="group flex h-full flex-col border border-borde bg-papel p-6 no-underline transition-colors duration-150 hover:border-acento">
+              <h2 class="mb-1 text-[1.05rem] leading-tight font-semibold text-tinta group-hover:underline group-hover:decoration-acento group-hover:underline-offset-[3px]">
                 {autor.data.nombre}
               </h2>
 

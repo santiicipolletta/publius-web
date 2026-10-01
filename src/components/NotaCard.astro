@@ -20,7 +20,7 @@ const datosAutor = await getEntry(autor);
     y no hay enlaces anidados, que sería HTML inválido. */}
 <a
   href={`/notas/${nota.id}`}
-  class="group flex flex-col border border-borde bg-papel no-underline transition-colors duration-150 hover:border-navy focus-visible:border-navy">
+  class="group flex flex-col border border-borde bg-papel no-underline transition-colors duration-150 hover:border-acento focus-visible:border-acento">
   {
     !sinImagen && (
       <img
@@ -39,7 +39,7 @@ const datosAutor = await getEntry(autor);
     <p class="rotulo mb-2.5">{categorias.join(' · ')}</p>
 
     <h3
-      class="mb-2.5 text-[1.1875rem] leading-[1.25] font-bold text-tinta group-hover:underline group-hover:decoration-navy group-hover:underline-offset-[3px]">
+      class="mb-2.5 text-[1.1875rem] leading-[1.25] font-bold text-tinta group-hover:underline group-hover:decoration-acento group-hover:underline-offset-[3px]">
       {titulo}
     </h3>
 
