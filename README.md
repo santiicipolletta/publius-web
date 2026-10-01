@@ -400,6 +400,6 @@ con la descripción a la vista, porque son 18 entrevistas temáticas.
 - [x] Modo oscuro con selector de tres estados
 - [ ] Sección de video (YouTube: Primera Parada y Fuera de Contexto)
 - [ ] Imágenes reales en las 65 notas que las tenían
-- [ ] Recuperar el dominio `publius.com.ar`
-- [ ] Deploy
+- [x] Dominio `publius.com.ar` recuperado y apuntando al sitio
+- [x] Publicado, con deploy automático en cada push
 - [ ] Panel de carga para que los autores escriban sin tocar código
