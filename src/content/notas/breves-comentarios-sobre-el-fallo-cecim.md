@@ -16,7 +16,7 @@ El pasado 29 de septiembre la Corte Suprema de Justicia de la Nación (en adelan
 
 Es preciso aclarar lo que la CSJN NO dijo en la sentencia, cuestión que deja en claro en su noveno considerando.
 
-> 9) Que, en suma, lo aquí decidido se limita al rechazo de la demanda con fundamento en la falta de legitimación de la actora y la ausencia del requisito constitucional de caso o controversia. En consecuencia, **el presente pronunciamiento no supone abrir juicio sobre la validez constitucional del artículo 154 del decreto de necesidad y urgencia 70/2023** —en cuanto deroga la denominada "Ley de Tierras Rurales"— **ni implica interferencia alguna sobre la intervención del Poder Legislativo** contemplada en el artículo 99, inciso 3°, de la Constitución Nacional respecto de la mencionada norma.
+> 9\) Que, en suma, lo aquí decidido se limita al rechazo de la demanda con fundamento en la falta de legitimación de la actora y la ausencia del requisito constitucional de caso o controversia. En consecuencia, **el presente pronunciamiento no supone abrir juicio sobre la validez constitucional del artículo 154 del decreto de necesidad y urgencia 70/2023** —en cuanto deroga la denominada "Ley de Tierras Rurales"— **ni implica interferencia alguna sobre la intervención del Poder Legislativo** contemplada en el artículo 99, inciso 3°, de la Constitución Nacional respecto de la mencionada norma.
 
 La CSJN no se expide sobre la validez o invalidez constitucional del DNU 70/2023, que deroga la Ley 26.737 de Régimen de Protección al Dominio Nacional sobre la Propiedad, Posesión o Tenencia de Tierras Rurales (la llamada ley de tierras). El rechazo de la demanda se sustenta en dos pilares: 1) la falta de legitimación activa y 2) la ausencia de caso o controversia. Vamos por partes.
 
@@ -36,11 +36,11 @@ El artículo 99, inciso 3°, segundo párrafo, de la Constitución Nacional esta
 >
 > 3. Participa de la formación de las leyes con arreglo a la Constitución, las promulga y hace publicar.
 >
-> **El Poder Ejecutivo no podrá en ningún caso bajo pena de nulidad absoluta e insanable, emitir disposiciones de carácter legislativo.**
+>    **El Poder Ejecutivo no podrá en ningún caso bajo pena de nulidad absoluta e insanable, emitir disposiciones de carácter legislativo.**
 >
-> **Solamente cuando circunstancias excepcionales hicieran imposible seguir los trámites ordinarios previstos por esta Constitución para la sanción de las leyes**, y no se trate de normas que regulen materia penal, tributaria, electoral o de régimen de los partidos políticos, **podrá dictar decretos por razones de necesidad y urgencia**, los que serán decididos en acuerdo general de ministros que deberán refrendarlos, conjuntamente con el jefe de gabinete de ministros.
+>    **Solamente cuando circunstancias excepcionales hicieran imposible seguir los trámites ordinarios previstos por esta Constitución para la sanción de las leyes**, y no se trate de normas que regulen materia penal, tributaria, electoral o de régimen de los partidos políticos, **podrá dictar decretos por razones de necesidad y urgencia**, los que serán decididos en acuerdo general de ministros que deberán refrendarlos, conjuntamente con el jefe de gabinete de ministros.
 >
-> El jefe de gabinete de ministros personalmente y dentro de los diez **días someterá la medida a consideración de la Comisión Bicameral Permanente**, cuya composición deberá respetar la proporción de las representaciones políticas de cada Cámara. **Esta comisión elevará su despacho en un plazo de diez días al plenario de cada Cámara para su expreso tratamiento**, el que de inmediato considerarán las Cámaras. **Una ley especial sancionada con la mayoría absoluta de la totalidad de los miembros de cada Cámara regulará el trámite y los alcances de la intervención del Congreso**.
+>    El jefe de gabinete de ministros personalmente y dentro de los diez **días someterá la medida a consideración de la Comisión Bicameral Permanente**, cuya composición deberá respetar la proporción de las representaciones políticas de cada Cámara. **Esta comisión elevará su despacho en un plazo de diez días al plenario de cada Cámara para su expreso tratamiento**, el que de inmediato considerarán las Cámaras. **Una ley especial sancionada con la mayoría absoluta de la totalidad de los miembros de cada Cámara regulará el trámite y los alcances de la intervención del Congreso**.
 
 ## 2. La Ley 26.122 y el estado actual del DNU 70/2023
 

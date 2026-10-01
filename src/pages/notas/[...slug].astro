@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { fechaLarga, fechaISO } from '../../lib/fechas';
-import { slugCategoria, notasDe, imagenDe, altDe } from '../../lib/notas';
+import { slugCategoria, notasDe } from '../../lib/notas';
 
 export async function getStaticPaths() {
   const notas = await getCollection('notas', ({ data }) => !data.borrador);
@@ -29,7 +29,15 @@ const firmas = [
 const masDelAutor = (await notasDe(autor.id)).filter((n) => n.id !== nota.id).slice(0, 3);
 ---
 
-<Base titulo={titulo} descripcion={extracto} tipo="article">
+{/* La foto ya no se muestra dentro de la nota, pero sigue siendo la que
+    aparece al compartir el link. Sólo las fotos reales: los placeholders
+    son SVG y las redes no los procesan, así que ahí va la imagen de la
+    marca por defecto. */}
+<Base
+  titulo={titulo}
+  descripcion={extracto}
+  tipo="article"
+  imagenSocial={nota.data.imagen}>
   <article>
     {/* --- Encabezado sobre papel blanco --- */}
     <header class="border-b border-borde bg-papel">
@@ -72,15 +80,12 @@ const masDelAutor = (await notasDe(autor.id)).filter((n) => n.id !== nota.id).sl
     </header>
 
     <div class="contenedor max-w-[860px]">
-      <img
-        src={imagenDe(nota)}
-        alt={altDe(nota)}
-        width="1200"
-        height="800"
-        fetchpriority="high"
-        decoding="async"
-        class="mt-9 aspect-16/9 w-full border border-borde object-cover"
-      />
+      {/* La nota NO lleva imagen de portada, a propósito. En los listados
+          la foto ayuda a reconocer de qué va cada nota; acá adentro, con
+          el tema ya elegido, una imagen a pantalla completa sólo empuja
+          el texto hacia abajo y obliga a scrollear antes de leer.
+          La imagen sigue usándose en el home, en las tarjetas y al
+          compartir el link en redes. */}
 
       {/* --- El cuerpo del texto --- */}
       <div class="prosa mt-10 max-w-[68ch]">

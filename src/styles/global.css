@@ -194,7 +194,7 @@
 
   & ul,
   & ol {
-    padding-left: 1.3rem;
+    padding-left: 1.6rem;
   }
   & ul {
     list-style: disc;
@@ -204,6 +204,15 @@
   }
   & li + li {
     margin-top: 0.5rem;
+  }
+  /* Un ítem puede tener varios párrafos —pasa en las citas de artículos
+     de ley, donde el inciso sigue varias líneas más abajo—. Todos
+     cuelgan del texto del ítem, no del número, y respiran entre sí. */
+  & li > * + * {
+    margin-top: 0.9em;
+  }
+  & li::marker {
+    color: var(--color-tinta-2);
   }
 
   & hr {
