@@ -1,6 +1,6 @@
 ---
-nombre: "Lautaro Sánchez"
-temas: ["Medios", "Pandemia"]
-presentacion: "Medios y consumo cultural: cómo la pandemia aceleró una crisis de la televisión que ya venía en camino."
-orden: 50
+nombre: "Lautaro Sánchez Lusarreta"
+temas: ["Derecho constitucional", "Corte Suprema", "Medios"]
+presentacion: "Lee los fallos por dentro: qué deciden realmente, qué dejan sin decidir y qué consecuencias prácticas tienen. Derecho constitucional, decretos de necesidad y urgencia y el reparto de competencias entre los poderes. También escribe sobre medios y consumo cultural."
+orden: 10
 ---

@@ -102,6 +102,11 @@
       "permanent": true
     },
     {
+      "source": "/breves-comentarios-sobre-el-fallo-cecim",
+      "destination": "/notas/breves-comentarios-sobre-el-fallo-cecim",
+      "permanent": true
+    },
+    {
       "source": "/carta-a-los-futuros-abogados",
       "destination": "/notas/carta-a-los-futuros-abogados",
       "permanent": true

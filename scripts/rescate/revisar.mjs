@@ -51,11 +51,22 @@ const CONTROLES = [
     },
   },
   {
+    /* Las notas rescatadas conservan el énfasis como HTML, así que
+       cualquier asterisco suelto ahí es un marcador roto. Pero una
+       nota escrita a mano usa **negrita** y *cursiva* normalmente, y
+       eso está bien. Por eso se descuentan primero los pares válidos:
+       sólo se denuncia lo que quedaría a la vista del lector. */
     nombre: 'Asterisco de Markdown a la vista',
     grave: true,
     revisar: (cuerpo) => {
-      const m = cuerpo.match(/\*/);
-      return m ? `hay ${(cuerpo.match(/\*/g) ?? []).length} asterisco(s)` : null;
+      const sinEnfasis = cuerpo
+        .replace(/\*\*\*[^*\n]+\*\*\*/g, '') // ***negrita cursiva***
+        .replace(/\*\*[^*\n]+\*\*/g, '') // **negrita**
+        .replace(/(^|[\s(¿¡"'])\*[^*\n]+\*(?=[\s).,;:!?"']|$)/gm, '$1') // *cursiva*
+        .replace(/^\s*[*-]\s+/gm, ''); // viñetas de lista
+
+      const sueltos = (sinEnfasis.match(/\*/g) ?? []).length;
+      return sueltos > 0 ? `${sueltos} asterisco(s) sin par` : null;
     },
   },
   {
