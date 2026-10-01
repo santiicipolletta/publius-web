@@ -238,6 +238,34 @@ metadatos. Los tres pasan AA (4.5:1) sobre blanco y sobre el gris del fondo.
 > para destacar texto. Están concentrados en el componente
 > `CtaMultimedia.astro`, así que la regla se cumple sola.
 
+### Modo oscuro
+
+El sitio tiene tema claro y oscuro, con un selector de tres estados en la
+cabecera: **claro**, **oscuro** y **según el sistema**. El tercero es el que
+viene por defecto, así que quien tenga el teléfono en modo noche automático ve
+el sitio oscuro sin tocar nada.
+
+**Los componentes no saben nada del tema.** Todos sus colores salen de las
+variables del bloque `@theme`, y el modo oscuro sólo redefine esos valores. Por
+eso agregar un componente nuevo no requiere pensar en el tema: si usás los
+tokens, funciona en los dos.
+
+Tres reglas que no son obvias y conviene respetar:
+
+| Regla | Por qué |
+|---|---|
+| El **navy de la cabecera no cambia** entre modos | Es la marca, y es lo que mantiene el sitio reconocible |
+| Nunca uses `navy` como color de texto o borde sobre una superficie que cambia | En oscuro queda navy sobre navy. Usá `acento` o `rotulo`, que adaptan |
+| Los puntos de color del pie y la navegación usan `yt-senal` / `sp-senal` | Viven sobre el navy fijo. Si siguieran al tema quedarían negro sobre negro |
+
+En oscuro los CTAs multimedia cambian de tratamiento: en vez de fondo sólido
+con texto blanco, el fondo se apaga y el color pasa al texto, para que el bloque
+no compita con la lectura.
+
+El script que aplica el tema corre **en línea en el `<head>`**, antes de que el
+navegador pinte. Sin eso, quien elige oscuro ve un destello blanco en cada
+carga.
+
 ### Tipografía
 
 **Poppins** en todo: geométrica y moderna, es la que más se acerca a la del
@@ -369,6 +397,7 @@ con la descripción a la vista, porque son 18 entrevistas temáticas.
 - [x] **30 autores**, todos con ficha propia y presentación por temas
 - [x] Buscador de autores por nombre y por tema
 - [x] **Podcast: 212 episodios** con audio, armados desde el feed
+- [x] Modo oscuro con selector de tres estados
 - [ ] Sección de video (YouTube: Primera Parada y Fuera de Contexto)
 - [ ] Imágenes reales en las 65 notas que las tenían
 - [ ] Recuperar el dominio `publius.com.ar`
